@@ -1,3 +1,4 @@
+import type * as Phaser from "phaser";
 // PROJECTILES
 export function preloadUI(scene: Phaser.Scene) {
     scene.load.image("header", "ui/Panels/header.png");
@@ -88,4 +89,3 @@ export function preloadUI(scene: Phaser.Scene) {
         "ui/Buttons/button_square_yellow.png"
     );
 }
-

@@ -40,9 +40,8 @@ class PauseScene extends BaseScene {
             "yes-btn",
             () => {
                 this.scene.stop("PlayScene");
-                this.scene.stop("WaitingScene");
                 this.scene.stop("OnlinePlayScene");
-                this.scene.start("MainMenu");
+                window.dispatchEvent(new Event("hoodedhero:menu"));
             }
         );
     }
@@ -58,10 +57,6 @@ class PauseScene extends BaseScene {
                     ? this.scene.resume("PlayScene")
                     : "";
 
-                this.scene.isPaused("WaitingScene") === true
-                    ? this.scene.resume("WaitingScene")
-                    : "";
-
                 this.scene.isPaused("OnlinePlayScene") === true
                     ? this.scene.resume("OnlinePlayScene")
                     : "";
@@ -71,4 +66,3 @@ class PauseScene extends BaseScene {
 }
 
 export default PauseScene;
-

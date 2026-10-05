@@ -37,4 +37,3 @@ class Slime extends Enemy {
 }
 
 export default Slime;
-

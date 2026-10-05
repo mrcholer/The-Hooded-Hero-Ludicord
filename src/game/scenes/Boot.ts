@@ -1,31 +1,12 @@
-import { Scene } from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 
-export default class Boot extends Scene {
-    constructor() {
-        super("Boot");
-    }
-
-    preload() {
-        this.load.setPath("assets");
-
-        this.load.scenePlugin(
-            "rexuiplugin",
-            "https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexuiplugin.min.js",
-            "rexUI",
-            "rexUI"
-        );
-
-        this.load.image("logo", "logo.png");
-        this.load.image("dummy", "dummy.png");
-        this.load.image("arrow", "weapons/arrow.png");
-
-        this.load.once("complete", () => {
-            this.create();
-        });
-    }
-
-    create() {
-        this.scene.start("Preloader");
-    }
+export default class Boot extends Phaser.Scene {
+  constructor() { super("Boot"); }
+  preload() {
+    this.load.setPath("assets");
+    this.load.image("logo", "logo.png");
+    this.load.image("dummy", "dummy.png");
+    this.load.image("arrow", "weapons/arrow.png");
+  }
+  create() { this.scene.start("Preloader"); }
 }
-

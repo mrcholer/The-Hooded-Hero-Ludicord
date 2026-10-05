@@ -1,3 +1,4 @@
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import BaseScene from "../BaseScene";
 
 export default class SettingsScene extends BaseScene {
@@ -256,6 +257,8 @@ export default class SettingsScene extends BaseScene {
                 0,
                 1
             );
+            localStorage.setItem("hoodedHero.music", String(Math.round(this.sound.volume * 100)));
+            localStorage.setItem("hoodedHero.sfx", String(Math.round(this.sound.volume * 100)));
             this.createMusicBars();
         }
     }
@@ -268,13 +271,15 @@ export default class SettingsScene extends BaseScene {
                 0,
                 1
             );
+            localStorage.setItem("hoodedHero.music", String(Math.round(this.sound.volume * 100)));
+            localStorage.setItem("hoodedHero.sfx", String(Math.round(this.sound.volume * 100)));
             this.createMusicBars();
         }
     }
 
     toggleMute() {
         this.sound.mute = !this.sound.mute;
+        localStorage.setItem("hoodedHero.muted", String(this.sound.mute));
         this.updateMuteStateImage();
     }
 }
-

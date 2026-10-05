@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import { generateRandomHint } from "../../../utils/helpers";
 
 class Loading extends Phaser.Scene {
@@ -59,4 +59,3 @@ class Loading extends Phaser.Scene {
 }
 
 export default Loading;
-

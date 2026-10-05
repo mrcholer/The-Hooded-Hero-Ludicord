@@ -6,4 +6,3 @@ export default (anims) => {
         repeat: -1,
     });
 };
-

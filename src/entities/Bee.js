@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../animations/entities/beeAnims";
 import Enemy from "./BaseEnemy";
 
@@ -74,4 +74,3 @@ class Bee extends Enemy {
 }
 
 export default Bee;
-

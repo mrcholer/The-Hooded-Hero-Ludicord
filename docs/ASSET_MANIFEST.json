@@ -1,0 +1,2100 @@
+{
+  "assets": [
+    {
+      "path": "public/assets/backgrounds/bg_cave_1.png",
+      "bytes": 313489,
+      "sha256": "9978a01fbbfbecbac08b786456d7771f4a560e7c0c05464287ee8b232d7e70cb",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/bg_cave_2.png",
+      "bytes": 290915,
+      "sha256": "eae0ae5e2fbcc7c1559aec7843c2ec21e1b276a34e69fdf625cac177e1985b69",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/bg_cave_3.png",
+      "bytes": 299459,
+      "sha256": "baccfa8e5c0021d87f5da85d12ed21c827d42aa0816a7cf6d9d929357f0be231",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/bg_cave_4.png",
+      "bytes": 186332,
+      "sha256": "1c23c2da8e27aa7eb341b8f6f4d0166743d27e49ec93fec252f2eb98a42fbcf3",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/bg_cave_5.png",
+      "bytes": 114577,
+      "sha256": "b1842f9534792a6d886b24a39424cabbb8218be83fa3b25a36ce9f44a009007f",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/bg_forest_1.png",
+      "bytes": 303819,
+      "sha256": "19d1bc3202de508751a429c185b3f5d72c27becb425e2d33c778f19a1636a803",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/bg_forest_2.png",
+      "bytes": 338529,
+      "sha256": "70f2e7f74374a7e0f3c9e948b89d25ee0f00c03d32a0e2a9432f2ac8700d34f7",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/bg_forest_3.png",
+      "bytes": 227585,
+      "sha256": "ed5b7cca66ba867a740b6dba01be0e6933ca963e971acff98159a9fe33d97d9e",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/leaf.png",
+      "bytes": 991,
+      "sha256": "641492efd5301553637bb176723f1e06f7ef978735bbb467e65b0ee66f10a694",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/mountain_bg.png",
+      "bytes": 174322,
+      "sha256": "0d53e8faf1ea8e11e87bbbc2384a6ffbf95924f45f22a3ec4def3377c95c9107",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/sky_bg.png",
+      "bytes": 72074,
+      "sha256": "2c88d346cb4a843e26b44d0bb2e68351c8f41d34408d71ebfd59f7cd5ee1a887",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/tree1.png",
+      "bytes": 193565,
+      "sha256": "8ef409fa56afbac66a821033af6e9f956bc966228e0f97661d831066019b635d",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/backgrounds/tree2.png",
+      "bytes": 217540,
+      "sha256": "bb660c60459f192988839234b7f8075c4800e6719c85637d66dc25ee423ca6e8",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/collectibles/coin_spin.png",
+      "bytes": 16827,
+      "sha256": "8cd207e4f14d827a1fff36de11f0668d32ddc4e53edf016f52e073f9a0b93ff6",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/archer_death.png",
+      "bytes": 183432,
+      "sha256": "af70d24492b3e3b5512b48dbcdde608942b70c3a8bd9dc2c2b8a2ddfdbb05e10",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/bat_death.png",
+      "bytes": 181282,
+      "sha256": "03234e075bccbb6b3b389a2f44f37ce590ce113d828321397fae8a6791394c49",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/bee_death.png",
+      "bytes": 161063,
+      "sha256": "cd1070edf618e4f72d4d86ab77508402d7bef39b05a19e9aff90af24fa1d56df",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/boss_death.png",
+      "bytes": 1144553,
+      "sha256": "f084a6f6e84f06df98bbf5156d2a5ceee776580b06ca566b6aa678f91b701bfa",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/crossbow_death.png",
+      "bytes": 99172,
+      "sha256": "3c2126f378f9ee5d42b3df54ea50f8ef3bd04a53e883c409a0a56fe6714ba5ce",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/mage_death.png",
+      "bytes": 217383,
+      "sha256": "de2268c7f9d09b72fcef2f906ae1e754797dfc8a65c94e93bc1e7f1e17e77582",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/player_death.png",
+      "bytes": 163239,
+      "sha256": "bb52b163d452e14f3cae207bb2b70812bc6d9d4df04344ad7fbe4438a3b1cd1e",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/shield_death.png",
+      "bytes": 157083,
+      "sha256": "badc9e1c987f3d6edbcad78358d54ee999806ffd86af12648602d016c7ef3e4a",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/skeleton_death.png",
+      "bytes": 147287,
+      "sha256": "ad0c0a061cf93d0215ca2240bec3c85c7b2069dc61a876d3771f7c10ce4119c7",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/slime_death.png",
+      "bytes": 79885,
+      "sha256": "7ade3d216a0ca94c95ddbf027233ed34b3d33f7954aeccdcac057787363afcc6",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/spear_death.png",
+      "bytes": 177741,
+      "sha256": "4f8759117ddbae20ee32cc5d174479c5e1ae4a5b622d36e024734172f36081a5",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/deathAnims/spider_death.png",
+      "bytes": 149646,
+      "sha256": "cbdc92fd33d578b6df73d63b00fc7b9d392e8cddf20ae4e28e7e0b5a2db77e90",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/dummy.png",
+      "bytes": 19281,
+      "sha256": "12ca8558cba6c35214820f1019ff42385ececc449b4a0f8ced6bff4fad35407e",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/archer.png",
+      "bytes": 598050,
+      "sha256": "e4a8a6335cff3ecf5480280ff7c0c6b0ce373d6c58605aeaa2299dba2d86b8ee",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/bat-fly.png",
+      "bytes": 138002,
+      "sha256": "b88458f6a48f8db88f577c283666b9022c139dd38d7d7a29c7f1d661fc953584",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/bat-idle.png",
+      "bytes": 86748,
+      "sha256": "5f21e683df43a08b0b242b626740da95abae65f7ec40fd24c0717fdde63d8f92",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/bee.png",
+      "bytes": 274026,
+      "sha256": "55fed8ee351a1c8feebbb971990f887b3679406ba1462bf402be8eb57e4c467d",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/boss-idle.png",
+      "bytes": 709717,
+      "sha256": "cd6bbc18fb682039def833214a10b25a94e7292375c3e6cc13e73f335699da7c",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/boss.png",
+      "bytes": 3000542,
+      "sha256": "22a47b9d4e6fcf0f830977e6d1a075de4f7f4253391c377c02292b72e9ddfa37",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/boss_attack.png",
+      "bytes": 2016791,
+      "sha256": "a7fa8ac7afad7b047ee42f4ae21609385004f46bbba7dd4676fd76b10681179d",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/boss_run.png",
+      "bytes": 977539,
+      "sha256": "9af7ff485926767d23a3d4713f95d04e141cc7724f9f50918799bac831eb01f1",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/mage-idle.png",
+      "bytes": 163006,
+      "sha256": "6df4d977639579da8da77ffee7505242856b0ee8aec7de67f94bc9a1bafa5b64",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/mage.png",
+      "bytes": 445566,
+      "sha256": "6230608feb216016b39c3182062b669123689e00c2a981c8391a31e52d1273da",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/shield-run.png",
+      "bytes": 108194,
+      "sha256": "c328bb55e4efb0697832920bdd0ffe57fe53cd1abc12f5cc1e90414ae819363f",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/skeleton.png",
+      "bytes": 343172,
+      "sha256": "bbd141350683c2663529ac9e779a66c2d892fe268d0018f92a9882aa7c0ea9c7",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/slime.png",
+      "bytes": 66918,
+      "sha256": "fe4fea3f6db3c6685347fbf2d93a73b3be16e444fcd96816f62eaa7515b3d670",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/spear-run.png",
+      "bytes": 127099,
+      "sha256": "953676a8b76913644cf9c16873e5ff60455d9a9c7c103ea274714682246a9b5f",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemy/spider.png",
+      "bytes": 200755,
+      "sha256": "fe64c7be7c81fb26af4e5ece21229cb009ea4a90c4437bd80d3eaa16ce00ba95",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemyAttacks/bat-attack.png",
+      "bytes": 165073,
+      "sha256": "5789ea9f8391cd4f060a82be1cdca060ee2f011369ce285f74226ebd2991f07b",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemyAttacks/bee-attack.png",
+      "bytes": 191590,
+      "sha256": "698f4e9a2898e8c3575863fc6bb9aebb1fcc40895b95031b1e371de5bc0b3483",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemyAttacks/crossbow-attack.png",
+      "bytes": 168896,
+      "sha256": "e0be188ee796aad8dde18bb318e45ba27d1dee5f057f77d42f5b81b9e9eeaf65",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemyAttacks/mage-attack.png",
+      "bytes": 417851,
+      "sha256": "d1479f2d10a7fee1704095367ff7dbf869c3cf92ab535ff5caa9f71ab58efb96",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemyAttacks/shield-attack.png",
+      "bytes": 207469,
+      "sha256": "d131341c047877874085392c7ff38078b1199073732316d9147d1da11553e978",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemyAttacks/skeleton-attack.png",
+      "bytes": 210503,
+      "sha256": "37e29135180398096c8dfbe1c97ff20b1b09e55c78d5d7d48803a6a4ce6ca441",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemyAttacks/spear-attack.png",
+      "bytes": 264667,
+      "sha256": "e53c977d23f59023c4e786603d98a5c9d8b2eee9d0c29fe2af913ad5208754ad",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/enemyAttacks/spider-attack.png",
+      "bytes": 126218,
+      "sha256": "e9db7eae6b3d6c8a5796adc51c220a1bc859027acad0ca15e8cab6c6a58f617e",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/github.png",
+      "bytes": 8640,
+      "sha256": "d83ddf4ea98e9d2e77848869cbe5f0ecabb3058ede22c681bbe07b45a9091909",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/gmail.png",
+      "bytes": 14826,
+      "sha256": "647f931a8175ce403430f41df9edec6460ade4c849fb5e5f5163d78d9ec8d296",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/levels/level_1.json",
+      "bytes": 675302,
+      "sha256": "08b225dd45395fb99d1d0b86e7f7e984dac27d3b8e5c9a6c43fc21b95743ca62",
+      "category": "maps",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/levels/level_2.json",
+      "bytes": 695643,
+      "sha256": "880f571059e00f7541801d8e9abb0e0109acaaab2ddd8e0c1f65edba8d1c5dd8",
+      "category": "maps",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/levels/level_3.json",
+      "bytes": 577121,
+      "sha256": "af65bb3b9a5dd69cc9c7c660a0c1345532e5fe499d4f40325899ddba8ed07a4c",
+      "category": "maps",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/levels/level_online.json",
+      "bytes": 411970,
+      "sha256": "05bd061f00dee35c1c281ffa2757e3b19b486b649cc8600b138f417ede17a976",
+      "category": "maps",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/levels/lobby.json",
+      "bytes": 209079,
+      "sha256": "a865be2169202f5053b28e648540e751b71379df70d1655b04288e26cafee2e9",
+      "category": "maps",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/levels/test_level.json",
+      "bytes": 358975,
+      "sha256": "eaad8a9fe537cfeb5f1bda9917a38969ca2c2481242969203ffca3e050e18d00",
+      "category": "maps",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/linkedin.png",
+      "bytes": 9501,
+      "sha256": "8512f4bc133e79c7496d3e41929f2e7933c9c172c0739ca02ab2cdf11022f85f",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/logo.png",
+      "bytes": 144416,
+      "sha256": "c3a19125e06a970b19f8b0246121bb1bc301c262676d18a51a61805bd358ebcf",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/logo2.png",
+      "bytes": 165411,
+      "sha256": "3f6b34ff160761169dd6df5d8ebe69bd7fbc37ef07a29917234e31ea63367949",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/boss_theme.ogg",
+      "bytes": 1091682,
+      "sha256": "90ad5c89a142543ded2c38105fb1cbb7a6a641a56de64916d9525c8f6d15f168",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/cave_theme.ogg",
+      "bytes": 1510157,
+      "sha256": "a0e59c2821e031766b7b8443143047114e8698c5f3346e45f2cd864bc0f95047",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/coin_pickup.ogg",
+      "bytes": 10388,
+      "sha256": "a06e8915cc0a0da029ec72dc65dc550a4525ee7959df2c71b0f7115d1663c933",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/countdown.ogg",
+      "bytes": 6543,
+      "sha256": "03720c38b231437a37247072698e71a6edc3410107271438f2b2831f4461c9fa",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/cursorOver.ogg",
+      "bytes": 7386,
+      "sha256": "191e6da6e87e00ad5eebd7daba1c51bea5a3eedbb5aedeb325ceca02c6a8a8c2",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/danger.ogg",
+      "bytes": 1136943,
+      "sha256": "bdef8fa825b0805cd41ec5fa454919fadc7e148179ff1eb007909663fdd01c20",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/enemyhit.ogg",
+      "bytes": 10260,
+      "sha256": "893f384f30c3d4c92386304f69a6c0b666adda01a5856a9415a516f6413402b4",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/enemyhit2.ogg",
+      "bytes": 8606,
+      "sha256": "11fa47cdaa8a27b17187602906559e07b8eb44d6e930bd6935cf83eab5297618",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/fail.ogg",
+      "bytes": 13213,
+      "sha256": "5428daedf45838a5347f63ba1010f403db85206250511d2638105db6dcc55915",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/flute.ogg",
+      "bytes": 67580,
+      "sha256": "30e34815deb8599f30f364a02f7b9914728e5c412ba9d0d4389299b1d14fb7fb",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/forest_theme.ogg",
+      "bytes": 1324124,
+      "sha256": "10831acf8835586befb95b6bc77aa0a0e9578b165f7a67372431ac5db1a4bd25",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/go.ogg",
+      "bytes": 8739,
+      "sha256": "3d6e3d93fd5812e1facf9d27d2108e2feb435dff688129fb3c358c1cfc0b963e",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/jump.ogg",
+      "bytes": 6038,
+      "sha256": "f52a4c42067c2595dff86157c190bbb0c167071e12ea873afe03002e9418c013",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/lose.ogg",
+      "bytes": 57645,
+      "sha256": "0567bb3302f08d0c91a667ad83ecd5c3deca9d697985bbd066aa2d02413d7ca0",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/menu_music.ogg",
+      "bytes": 2460538,
+      "sha256": "cd8f0ebf46d362577d7ea3080df5a49fa2b49985c797d366afdb9a889577cfa7",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/online_theme.ogg",
+      "bytes": 2123444,
+      "sha256": "c2b65c39bd45c5fe10792e5c0af8437d62a8ef0a6ba91056b56f0a9c3b23f356",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/page_flip.ogg",
+      "bytes": 8307,
+      "sha256": "fd3f94b323717530bd3b14076391f6885b4220c587600f5d6fcfbc09f11c8fd2",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/projectile_launch.ogg",
+      "bytes": 8709,
+      "sha256": "d8d41c555728cc3b307a294750fdd6ddc3464ebea838bfdc391d5d0ebaa4b8a8",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/punch.ogg",
+      "bytes": 18528,
+      "sha256": "1c65ee569bf6111c9e798626a1a67a2a781a598f35aaabf7b0096f3c31ae760b",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/sakura_theme.ogg",
+      "bytes": 3621854,
+      "sha256": "344f8febc11857efa4162719eeb567f684113df2d61851a661342969dc29bdfd",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/select.ogg",
+      "bytes": 8672,
+      "sha256": "bc413d1e747693a23280949f501fe88b0ac68d52a151bc5797a8a1bac05d0bc9",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/step_mud.ogg",
+      "bytes": 6586,
+      "sha256": "f0e0d8bc38b8012be707653303884224c2aae73ed01b8bda932f06bd45a28f88",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/swipe.ogg",
+      "bytes": 5326,
+      "sha256": "320e56517138b72a5eb5b09dc515b3dd766f525b7d67b7a18593223e94381764",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/music/win.ogg",
+      "bytes": 113730,
+      "sha256": "2d9db512dd3b65742aa928cf7fdb5f16b81339d06938c11fbb48fdc164cee6eb",
+      "category": "audio",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/objects/campfire.png",
+      "bytes": 67321,
+      "sha256": "99ade79842d4fb490ee5eae1a4a1593cbb48361e006150f167aff7cb33bbb72d",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/objects/crossbow.png",
+      "bytes": 12786,
+      "sha256": "e8ad02cc8d6aa53c45575d441b0454e083eaf38070ad13d0f24c6626920c0890",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/objects/firebowl.png",
+      "bytes": 81703,
+      "sha256": "847cbd42b3b618e52fe9373af77114456b97586c5abf958d198c515fd8027e42",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/objects/merchant-idle.png",
+      "bytes": 411039,
+      "sha256": "c9bb783edf10e74d3892049d027aaa45643d3156d47773287bee27ee1c83f808",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/objects/spider-den.png",
+      "bytes": 140190,
+      "sha256": "7340bdbe2cec901caf234e1b3a0c14c42b4322410a54374b56624e1f5e3c91c2",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/objects/torch.png",
+      "bytes": 30498,
+      "sha256": "0f009b23135bd572d15c95f31867030f69707b439755e293603184ea80d3fd0b",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/player/attackspritesheet.png",
+      "bytes": 116000,
+      "sha256": "d1248e0a9ebcf988cdcffa94559977f1bff2388b2a72922436a8c9c984e36576",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/player/move_sprite_1.png",
+      "bytes": 324118,
+      "sha256": "e98dabd7498b9361f98e5753a87c07b683adceb528826f3bd0439059bc8616ff",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/player/player_1.png",
+      "bytes": 267729,
+      "sha256": "b2389164222d9abec0143f1ae6d15632702df68c12feceefb061bb965ada855d",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/player/player_2.png",
+      "bytes": 224739,
+      "sha256": "a2b636bd370ee2525ce98e4582fa87224a644486eb5471d0712faf126e18225f",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/player/player_3.png",
+      "bytes": 282468,
+      "sha256": "17932aca3a0b254a46a09334f3c5da623cdf7fa35d31e5df21801745688d8ab0",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/player/player_4.png",
+      "bytes": 233073,
+      "sha256": "04b1b9d6bbd3511d1ba9f5a3582df1019fa430415db8200f9f37219ffb924dc0",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/player/throw_attack_sheet_1.png",
+      "bytes": 370837,
+      "sha256": "d5d9623bd86858e5b2b8de0e17d3ec977e874dafcedea14038c3156bad86e691",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/projectiles/fire.png",
+      "bytes": 9159,
+      "sha256": "4225ee5df5ff59a8642cab394b8a62d342a3300cba5b9c529ff6a7ba3b1cfce7",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/projectiles/fire_0.png",
+      "bytes": 1162,
+      "sha256": "9221ba47393b970aae004145425f1747efc87da2d617c0cfb09753bbbee83720",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/text/Acme-Regular.ttf",
+      "bytes": 21948,
+      "sha256": "5e7f5cbcb05b1d5d7226521831de958a5800a54625c628478b677237e1295dd9",
+      "category": "font",
+      "license": "SIL-OFL-1.1",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/text/OFL.txt",
+      "bytes": 4406,
+      "sha256": "48f7bdf873033e141893f72d36f06ef8aa320c822d884d59ea7847899a291025",
+      "category": "other",
+      "license": "SIL-OFL-1.1",
+      "source": "Google Fonts / Acme"
+    },
+    {
+      "path": "public/assets/tilesets/environment.png",
+      "bytes": 5376406,
+      "sha256": "eed6bb7164d24d0328493473cdcb91e5d4b7f36c1772e2f40150ded896be71dc",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/tilesets/house_inside_4.png",
+      "bytes": 391375,
+      "sha256": "ce789c9b23f46659f316828a7af2ca9f03c406e32c7af55548b26c90a1e0d8c7",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/tilesets/tileset_1.png",
+      "bytes": 1180658,
+      "sha256": "3cbf0eed24c36ed071353dc538a94786729bdf49dfc5dd490c84111928b93dc1",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/tilesets/tileset_2.png",
+      "bytes": 1146906,
+      "sha256": "9403a0a56891bb9067431d05eab272fa98d8b805dad17dcfa2de4ed9a7784f57",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/back_btn.png",
+      "bytes": 6426,
+      "sha256": "744e8b6699ade49deb9b2fc698dea849804663be5471eaf32502789ae23bfb8b",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_add_small_green.png",
+      "bytes": 1790,
+      "sha256": "7f13e3dfe0744647a2fc409bd20babbf77dfed72ed7f4c8ea54e822c98f4dc79",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_add_small_yellow.png",
+      "bytes": 2021,
+      "sha256": "5d71df949e8989c5b9e529bb30038b3f85d0bdab9161166c75d866ffe32f21ad",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_attack.png",
+      "bytes": 22235,
+      "sha256": "1864b4865d5b637e83394f8c92109a38d9c1e41e49959c90788b2ab800deb43d",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_blue.png",
+      "bytes": 5895,
+      "sha256": "470acb771fd8a09af55f72abd8db301a32ac8b5d7cda110482cb1db6280f197f",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_brown.png",
+      "bytes": 5909,
+      "sha256": "1e114dc7edd8e2a1011c05981a1ca4c1b12b212ce17a6b412da8fdcb7bde402d",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_circle_color_yellow.png",
+      "bytes": 5885,
+      "sha256": "68d228c576edd5ea3e2c377b2e6272963efcadacbc6ccde0313e0604e4cef7a9",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_color_blue.png",
+      "bytes": 5532,
+      "sha256": "7f52c8ced43c1474831bf3f1f889c855bc0ce368335bf4588c46baa7046cb531",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_color_brown.png",
+      "bytes": 5322,
+      "sha256": "2d2e81697e80a388e75ac64f8a90f286c6207df5dc5f7a17a155450784c31e9a",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_color_green.png",
+      "bytes": 4965,
+      "sha256": "920ddf2d857c5b295ed8b3a3fcaa084ac167428b1c45ed2e7b6db0eb9189b312",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_color_red.png",
+      "bytes": 5220,
+      "sha256": "0742e6b8b8d875c5e32154406900eebd2a4f3da5d38442ddc3d9c3b07905e789",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_color_yellow.png",
+      "bytes": 5729,
+      "sha256": "d806227edbf604f6d6820b61d88c2cbcd924ec71a6bdaa97d81a66636f4b9056",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_green.png",
+      "bytes": 5399,
+      "sha256": "0cfa76d0eeb55a5331572dd9bf6be18da5f61171158d245d97053392438484ce",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_jump.png",
+      "bytes": 15908,
+      "sha256": "0cc597c36067190073be42cc97197833302707c222fa63e019fa6eaf1c5e2dac",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_move.png",
+      "bytes": 17396,
+      "sha256": "893c956f0a3b891a40e37303785fb381a82efed9e597c98770e66d3b18d82aa8",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_red.png",
+      "bytes": 5344,
+      "sha256": "5019f2eb2edfe4fc53021dc1f59cf8dd0fe99d509e89303c3128bfc52c8739a2",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_roll.png",
+      "bytes": 16927,
+      "sha256": "bbe37ec098e43b12dc1070acd9f10156bbc047cfbfdcf2be689a41b3ebc8098a",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_shadow.png",
+      "bytes": 569,
+      "sha256": "5d025ea0121f5b28899b47c9bdb2e3932d12ee886b362757c48f3bb6a3a38fea",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_small_blue.png",
+      "bytes": 3044,
+      "sha256": "a5fcefd176ef6bd98e5afc6e98bc975a0fcaf6a80494f78f7a1bbf3046304ea9",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_small_red.png",
+      "bytes": 2842,
+      "sha256": "823bb90bcf91f8856f10f9caf0878834ed2b81eb51d7297b08377da874d7d380",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_square_yellow.png",
+      "bytes": 3119,
+      "sha256": "8e8d7b51344e0e82730daabe35d925da9f281bc48380dffc9af57325e64ec3c2",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/button_yellow.png",
+      "bytes": 5644,
+      "sha256": "6198862ce21096b5221f767aa39da2c0b1998f8541386427b434f3907ab29453",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/close_btn.png",
+      "bytes": 6574,
+      "sha256": "f36453be04bccbeb8fd787351c094090eaa80ce8d895f343f1917f51cd6d50a9",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/email_btn.png",
+      "bytes": 8475,
+      "sha256": "a1ffe91c976766404a26778427d44fb4a05dd8473d8ee635b5891cb858ed799c",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/home_btn.png",
+      "bytes": 7023,
+      "sha256": "d55eb2ffa7a66dd0c9b3b25b3461e5a659df349a8a5be70948b94a347878b4c1",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/home_btn_big.png",
+      "bytes": 11448,
+      "sha256": "0ad0361fc59158e5b624590b74c8d2995f1803cf5e81dddc4f858736dfea00e7",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/joystick_bg.png",
+      "bytes": 40618,
+      "sha256": "b50fc4ec6973fd66a226f93579ec96f043e859e47e30ad9616b421bfe39f4b9b",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/joystick_point.png",
+      "bytes": 3437,
+      "sha256": "b8957e550265c1b14f352916c0abb6d98c934875686a9a093d639a8985aa2cb8",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/no_btn.png",
+      "bytes": 10173,
+      "sha256": "60c1e8a169f13b6bae448b9943069c4e61148450bc90119d4d568ccfc64726a5",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/page_next.png",
+      "bytes": 4359,
+      "sha256": "ab1fb3b97821bce9b1a3c1f1e134eccf6170e6f2e472eabb4315faa4517a99fc",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/page_prev.png",
+      "bytes": 4540,
+      "sha256": "cc3d55ecab438be926da7f6262f2a441ef43a8ccfb0d3a235c8850d8bb453e49",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/play_btn.png",
+      "bytes": 9795,
+      "sha256": "5da27e23aa74c863875ae6e988dea9d08028732ecb52b775a2a92fc6e26e5e77",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/restart_btn.png",
+      "bytes": 6889,
+      "sha256": "69213f32c321a63aa253b1867ecf38b12644e01236815decd725395199ea866c",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/restart_btn_big.png",
+      "bytes": 11441,
+      "sha256": "fbfe1fff5eded30c6e57c36b640844970b4eec8563e9fe2a925e4c90583080d3",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Buttons/yes_btn.png",
+      "bytes": 10535,
+      "sha256": "cc70b504d7ccdb53484ac40cc96b1ed7294740d61d92aa6aebeaf54458eba8fb",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/arrow_left_icon.png",
+      "bytes": 16267,
+      "sha256": "87ceb690ff39058ad52cc3b337fda3e7a02eb7f63e967e23cba5d1f3b10187c6",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/arrow_right_icon.png",
+      "bytes": 15824,
+      "sha256": "3935d75bee331e537a71996a32779a63b56032bf3cf212dcb177102edb65a532",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/E_icon.png",
+      "bytes": 15691,
+      "sha256": "3726d1f40783f97416f7bcc61ab27812fde6afbc1e21e168a0536cb11b27f27e",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_big_battle.png",
+      "bytes": 12740,
+      "sha256": "0332de36e20654b3cfe7ff617a1128dd846d0f045c9d253888c2f22159095b16",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_big_book.png",
+      "bytes": 10526,
+      "sha256": "18fce70fc9e5b7d8c2a3ecd3cff7b2e5b80b54f9134deca2c7b32f4cec6c717b",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_big_coin.png",
+      "bytes": 8657,
+      "sha256": "dc8c8e3f109899bc4ec333fbbc86595c74f29bd045cadf9960019debdba93873",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_big_energy.png",
+      "bytes": 5201,
+      "sha256": "d172e12e342c9f6f0a4838b61efd9fbe82bfbb4c2240512e97a024a3cefa4e3b",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_big_setting.png",
+      "bytes": 11099,
+      "sha256": "0a04ef1ffbd52761f9e8700bc24ec9009b73bae1a8268769ee52f50542786063",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_big_skull.png",
+      "bytes": 9587,
+      "sha256": "ac39a43b1f2c0cbac66e5b45249dc464e0fd128a823744981b4061f3cc2b126f",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_big_star.png",
+      "bytes": 6378,
+      "sha256": "05b2fa74899f9dd97794315796fbe04d06bd09ae323401d40b90f41ef05300c0",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_achievements.png",
+      "bytes": 1953,
+      "sha256": "ff01bbe0c0f518149108621f1f81ad7125528ba186210828241be8e430e8bc93",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_ad.png",
+      "bytes": 2968,
+      "sha256": "cce95651ee814e577672c383881739a28a12c475d0f7469e5e4472b5b050e3aa",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_add.png",
+      "bytes": 825,
+      "sha256": "cb59427fcb39a3cb13f4bb6fbe8dd50ce18bb1b71834b49c522ee4470f9953bc",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_arrow.png",
+      "bytes": 5856,
+      "sha256": "77cb0ce85447d2a88c596a3fddc1a5ca0ec4aa6c6966fda10f8cd8a0c7f0f77d",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_attack.png",
+      "bytes": 4106,
+      "sha256": "546f7d07c12ba8d1c1122ec2863873ff9d07d3c9357e033e9098efc372a7f8aa",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_back.png",
+      "bytes": 2279,
+      "sha256": "25554e556cfa57a0f16de4999139a8be57fe7fa3892e9e88f7321511c7125ebc",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_battle.png",
+      "bytes": 4488,
+      "sha256": "9accba03449653c145ce00bc25b0b7ba999da0dd9aaf13bd2fb3a38612823794",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_block.png",
+      "bytes": 2847,
+      "sha256": "1f5081172d5ed59264999b59e1ce8fe2b7459f922fd74db41e1c5773417bde27",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_cancel.png",
+      "bytes": 2612,
+      "sha256": "822563c9018ee638aa851823c3f5e3d8d81924fc0024ae7c936d5dd8e2c7836f",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_category.png",
+      "bytes": 1913,
+      "sha256": "07989beb23ef09b7b3b4419bac994b6d75ba0e08c77519c6d52e34570e86b8e2",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_close.png",
+      "bytes": 2498,
+      "sha256": "5136a93d9914ef01dbdaf2ca9c5ef71314d7acc139179b4acd869e9abcae2fb6",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_coin.png",
+      "bytes": 6447,
+      "sha256": "b9696a16bb638f0165e94fba824aef3e6047e510baced681ddb44787615a2044",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_confirm.png",
+      "bytes": 2364,
+      "sha256": "02ca07e22e902a45627d033f18a5b31fa752284616e371905179d18a36cf4f18",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_down.png",
+      "bytes": 1612,
+      "sha256": "3bdf169268a12b6ad5bca6aa26cfadea8f464abf402b80b75cebd275b88f83cb",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_exclamationmark.png",
+      "bytes": 1366,
+      "sha256": "8ce75290eaf01892994816eb2015a3ec3542cfa1279009edd77b7d66fbd8be3c",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_home.png",
+      "bytes": 2591,
+      "sha256": "5dea564b5c229a480d71cc06e37ea184ade6963775dbb0bdb5db7ec2546821dd",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_jump.png",
+      "bytes": 6837,
+      "sha256": "27cbe7e6563b4638cd81cdcc41be20314c897829427dbb91f3249d885adb4510",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_left.png",
+      "bytes": 1706,
+      "sha256": "c79659df17b7646a392e1983c70e9ea4df31e2ff53110be9b4e18efffb916c43",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_lock.png",
+      "bytes": 2013,
+      "sha256": "db78157b120623f30c67fb479e3959b479eb94c40375f408bfe8762e6851a7f2",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_message.png",
+      "bytes": 3200,
+      "sha256": "411f3870c87fb98d19a910d5caa9fc1f8c37e612fcb1d2735f928bee3fda0b29",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_minus.png",
+      "bytes": 863,
+      "sha256": "1d56f01759f5cabfed2e2e4621dafbb0c7a7ed65974a0fa130025fefc8ffb7e5",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_moveleft.png",
+      "bytes": 4703,
+      "sha256": "ae70ba33298c359a9d2432da7d51c5babcfe3bc689941f7ff5aba768babb16d1",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_moveright.png",
+      "bytes": 4005,
+      "sha256": "debd195cf3522dabd2ef8c628f784fd5e5d85ddc844332eff83d28e524f7dd2d",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_music_off.png",
+      "bytes": 4464,
+      "sha256": "6e8cc3bb5afe6f396038eb57eb6f4ddef3e830ef0d6e98fee357ffb9504c7772",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_music_on.png",
+      "bytes": 2561,
+      "sha256": "27cbd099308546412890bec85fd7ebf1fb15e30e83d327563132e16c36d3a1cd",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_next.png",
+      "bytes": 1947,
+      "sha256": "0a286051d579fff091a4366833d18312c326d59b423742933e4bf2ff4cb977e0",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_notification.png",
+      "bytes": 1725,
+      "sha256": "f7ee1dfb610a9b3ba9dddc56f76844d86d25ebb2c6530f50d0d28c7a9be9615c",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_notificationoff.png",
+      "bytes": 2779,
+      "sha256": "b3e88606a53fd00738f90c288098a10332f4f6d378f3f104ed689720514be4e6",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_pause.png",
+      "bytes": 1338,
+      "sha256": "69bef0c3179551e0feb21eecabd3576ce570c85aa3e0de82279429c80dbfe304",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_plus.png",
+      "bytes": 1682,
+      "sha256": "a718cbeb7c01e21d67e1ef65cf5ad41ee5998f4738f03b635c5825d721e31993",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_prev.png",
+      "bytes": 1960,
+      "sha256": "5c2e9d78c1910048fb5a9bd390a8762d32c2fa0c44e153449b9b06ae0e1bdc1c",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_profile.png",
+      "bytes": 1680,
+      "sha256": "0d64a0fd09a91c96e5116d149087b509050d65c34351d759993bbed858451608",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_questionmark.png",
+      "bytes": 2027,
+      "sha256": "8891c17602eaf24829d6dabcd87639ee198bfe69f6dae2e30e50bd9c75896b1b",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_restart.png",
+      "bytes": 2671,
+      "sha256": "fb54bf31523ceaa20b09d3a1007a3c09861d1165287e65baf3fe63e5a219d66a",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_right.png",
+      "bytes": 1666,
+      "sha256": "212591cdb7f1ff11e10956b6b59700a7fdf7ccfaa8b0db7767099d31ab52dc38",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_roll.png",
+      "bytes": 4477,
+      "sha256": "a5b15f4449806e8e7ea3b796e86fa46bcff635c98ac2b14b02d1bb20645cc7c9",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_setting.png",
+      "bytes": 3354,
+      "sha256": "43da093a46b9b5423c9ba325d4fc808e9d7a48bcd8a5cbec696ab7f008859207",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_skull.png",
+      "bytes": 4622,
+      "sha256": "ee0d50dd980b852923ef4c398bda71a1cc942f29fd0bafafd3c8cfc49578d2c5",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_sound_off.png",
+      "bytes": 3083,
+      "sha256": "dc02679857381482199bcb68c21ef0719519b237a3de79dcaa0e7ba7a0397541",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_sound_on.png",
+      "bytes": 3307,
+      "sha256": "1687976dccab686ce8d1c2b2e9779c89bfc033036a254c4d63a0c6fc28fa6dfe",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_stages.png",
+      "bytes": 1898,
+      "sha256": "2985b8e577c50e36b9bf8f3b320083f47b2380a104fbf3076b411a31bddfb208",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_star.png",
+      "bytes": 1368,
+      "sha256": "8e6f64140adbb17e7c43bea5db828f744aaf8ca0bb25dbc068f9de9e258b9a9b",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_timer.png",
+      "bytes": 2357,
+      "sha256": "78a7a82f3c499983c388caf7989b25d8eabd785e10a7f30e59b91373fc537cd6",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_trophy.png",
+      "bytes": 1747,
+      "sha256": "9adb9bb48a24ee6d82b253d84b075c7fd6de67f2947e2d77a5b34bb4b59b279e",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_small_up.png",
+      "bytes": 1633,
+      "sha256": "1df5501e47bbd08535a478a5ffd66e695686d0f2d0a2f5355bf00f51820c96bf",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/icon_start.png",
+      "bytes": 1901,
+      "sha256": "65bc2a05ab9a8cb01992d571d01c517d3ddb8e68ad29c15aa425250276127bb6",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/page_icon.png",
+      "bytes": 7446,
+      "sha256": "0a4cc147faf1b15fb984f025667d521b5460aed521a10748e696963ce5fca149",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/Q_icon.png",
+      "bytes": 16854,
+      "sha256": "8a6b29fc4962e66d8676ad69ce2916852d60b1c1694db76398c77cee2ab36ea4",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/shift_icon.png",
+      "bytes": 21682,
+      "sha256": "a73e93cfebab3d9fc2aa4c5eb09991d895141968a6ac47cc57a306c15e5f4a72",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/spacebar_icon.png",
+      "bytes": 31394,
+      "sha256": "b1a80da9231b295fe9e3ee78f711d0ee983a223d452d4a7b7cc9eadba6140950",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Icons/stage_lock_icon.png",
+      "bytes": 8254,
+      "sha256": "ce5f26d98ea81e2bb6b80deb522851d7744904b727d46c4bf6014f9b6a163e27",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Panels/header.png",
+      "bytes": 13543,
+      "sha256": "0299a665ff3f89ebb873133567e8e6372ec54a13f473fec758720726f6ee468e",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Panels/header_shadow.png",
+      "bytes": 2388,
+      "sha256": "0c8e9fe0f8b2625a388ffcfb653a0a5b1cc3d13e95d4f7b17e56511c303b4c6b",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Panels/panel_1.png",
+      "bytes": 34796,
+      "sha256": "41181841943261cdc294776bd589ff4d31234842b5a0074434b44be3a9ccec4d",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Panels/panel_2.png",
+      "bytes": 75933,
+      "sha256": "a599bd876bd4e90433630c451514212619296d1db2227e45a164dc71e267377e",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Panels/panel_3.png",
+      "bytes": 20703,
+      "sha256": "7e297007a25647dafe6ddd04c40926323640332a11da9a02c3dc41109a67c7eb",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Panels/panel_4.png",
+      "bytes": 4124,
+      "sha256": "be7144013846a2cd26c34cf53e21630cb71712010ab489004476fb0ccbe030c1",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/checkbox_off.png",
+      "bytes": 2359,
+      "sha256": "1044d315d498a968bb14a164b1cc3cb1d5b3d0e63f27ee2c2455dd7ae8404062",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/checkbox_on.png",
+      "bytes": 4200,
+      "sha256": "b63e83be2c32776beebe48ee4ba51d3cbdabb7f34b47b6beb21935be212cc98c",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/settings_slider_bg.png",
+      "bytes": 2748,
+      "sha256": "f7555102372c36e04419069e9a62ea271d851e9b0d31e9f1d5dff7046fd359d3",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/settings_slider_block.png",
+      "bytes": 176,
+      "sha256": "14d6292f50e43139c97cc4787fec3d5af28d24ab18a17878430959cb367f1386",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/settings_slider_blue.png",
+      "bytes": 2119,
+      "sha256": "def6973fc288cedc97a4ba0838f661887289cf1c543204d46e6e0f0c3c6304d9",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/settings_slider_fill.png",
+      "bytes": 129,
+      "sha256": "34a44e1797eff60acaaa898a5fbb6c461e96406fc5cf072b4697969ea267e286",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/settings_slider_frame.png",
+      "bytes": 1735,
+      "sha256": "0501b274c1a4bf1eb840c600957887228a946b5b486e98ec042e4b6c5d236cb7",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/settings_slider_yellow.png",
+      "bytes": 2159,
+      "sha256": "3c032c5a728c682b6008625bd5777ddde7fdfbb47f5512e54799c5a72dc6678b",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/switch_off.png",
+      "bytes": 2125,
+      "sha256": "16ab29c86cf019d3075e45d9623df2ab4c5679627eab69571867671b378e7576",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/switch_off_bg.png",
+      "bytes": 2495,
+      "sha256": "e1c83bcba1582745de5d60b7c6e758fcdb56f5f576f16f0517a3f71d05b9b549",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/switch_on.png",
+      "bytes": 2071,
+      "sha256": "93dbad651b476beec177cdf02763311d541f4860c3cb602344dabae1e07eb8c7",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/switch_on_bg.png",
+      "bytes": 2591,
+      "sha256": "fe4efe4179c519dfb0e02b2ed9026b137f8bc9eec985d5b0dd07d2c3b748f24a",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/toggle_circle_off.png",
+      "bytes": 3900,
+      "sha256": "c78759813d28b0de79b639cf51868f6ecb272c13c3e6f05f7e088a002323072f",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/toggle_circle_on.png",
+      "bytes": 3776,
+      "sha256": "4cd5dd158aad28adaf8111fd548ed4fe8a39ec1c7327a211de3f6099275c757a",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/toggle_square_off.png",
+      "bytes": 2359,
+      "sha256": "1044d315d498a968bb14a164b1cc3cb1d5b3d0e63f27ee2c2455dd7ae8404062",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Settings/toggle_square_on.png",
+      "bytes": 2143,
+      "sha256": "dd0e20ebfb4a0c209529c51026e96cb80fddeddcdfa3b0330958622fd992ae4c",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/defeat.png",
+      "bytes": 28299,
+      "sha256": "04f90ac0460ec15ed5820464cb08f79392086ac3ea8f4ed5ed4c1d63ce3df061",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/defeat_shadow.png",
+      "bytes": 7425,
+      "sha256": "85d6ec568e072989681cee690bf612dac400f939a4324c9671f200d3bf2bc1d6",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/page_navi_bg.png",
+      "bytes": 892,
+      "sha256": "3644e339d447b4d859ba87675feca659050a855161f595ea95d69119bc3a6d05",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/page_navi_point.png",
+      "bytes": 1429,
+      "sha256": "912018ba220f4df1f5de169c8c3e7fcab691e806f6a1966065b00076620888d9",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/stage_default.png",
+      "bytes": 8976,
+      "sha256": "a5ac59a5317c9df4c18e580b60139489cf61bcfdfc9ae83f43b5cdb45d934fb5",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/stage_icon_star_empty.png",
+      "bytes": 4141,
+      "sha256": "a95e2c172dd71111c29d8cee00068281bbab4b557a41324dcfe68fd141af152c",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/stage_icon_star_fill.png",
+      "bytes": 3957,
+      "sha256": "0a562f85f15b3be5d8502d0bfffa9e00e0d36bc5320fb83a495bb8caf2826e5c",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/stage_lock.png",
+      "bytes": 5568,
+      "sha256": "2b1ecb282b292024f64a3c3a10f748430ea0fe377807ef139d90381c1d4c0267",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/star_empty.png",
+      "bytes": 14120,
+      "sha256": "f5ba121a0d86f50d7342fccc41341f49e87a640b4e0b58ffa22e38f8164470c0",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/star_full.png",
+      "bytes": 18096,
+      "sha256": "fc4a06449757dfb1d34ed64f6ae923cb26efb9b1b8addb468654d495ba9f4ffd",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Stage/star_shadow.png",
+      "bytes": 5345,
+      "sha256": "7442b9d76640abd54a234256c12d91f62128d8388706b2db540ed1ae3102e896",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/character_energy_bar_bg.png",
+      "bytes": 1891,
+      "sha256": "e9b66ca7c0750d427d1553dda0c33b2294abdaebdbbde3b2253b7b3a55d7c1ee",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/character_energy_bar_fill.png",
+      "bytes": 111,
+      "sha256": "5e2bb9d1e8d884a53c480c0ae53835d0f883df5c097ff9b3cd3eba66cb1ddc27",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/character_energy_bar_frame.png",
+      "bytes": 1139,
+      "sha256": "0c17b8ad9cd0edbce54af7ef94e3e367498c750b1fe40bfd60e66edbd910a231",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/character_hp_bar_bg.png",
+      "bytes": 2188,
+      "sha256": "f23245569096bff2a3ee1570436d1862b3742663f71baeebcff550fd3031ae40",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/character_hp_bar_fill.png",
+      "bytes": 130,
+      "sha256": "29c6cbdd7d8eafec5ea706c4e0f5a9e0364407283560476fbda88b90906e74ec",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/character_hp_bar_frame.png",
+      "bytes": 2169,
+      "sha256": "d159fd5928233cfa9551175de95921b2fe0f3ac5af85e56782139f5f6fbc1cfb",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/character_xp_bar.png",
+      "bytes": 3881,
+      "sha256": "878a9e93e363a13725fe5c185816cc97750a82a6ef59f7c44852e806009489b0",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/coin_bar_bg.png",
+      "bytes": 3799,
+      "sha256": "d92f6c62a76e214cf69ce4a9dae6a84215a80d1e50577a788610b454123de67a",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/heart_empty.png",
+      "bytes": 4912,
+      "sha256": "255408b827d541a7d1d2d2aa551799793461c7f1c2c52bbde3a3503be0b22585",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/heart_fill.png",
+      "bytes": 5380,
+      "sha256": "ae168f8e9db06270fd1e3c28ef76104532626bd06baae5a5d1792172995441e4",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/hp_bar_small_bg.png",
+      "bytes": 893,
+      "sha256": "adaf46e7cc565076cac178bba771fa28f65f6244ca332d937da9d1edd5c740a3",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/hp_bar_small_fill.png",
+      "bytes": 104,
+      "sha256": "161ac3cb92073589c0a3ce82dd233d0ea43b70ee39b3ed01ec59db2ce18a0f79",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/hp_bar_small_frame.png",
+      "bytes": 710,
+      "sha256": "39216212eca387028a965978d55ac4cec0b2bd9e93c5007ce71d3519a288f096",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/loading_bar_bg.png",
+      "bytes": 4459,
+      "sha256": "d389c59bb4444e149e7c2c083a51f9766860a9e4ebb9030c70a8970c5b307b85",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/loading_bar_fill.png",
+      "bytes": 136,
+      "sha256": "f174d3e132fb1aeb5bce66d162361ade45280d91bd477e57872a5fedcfff9a16",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/loading_bar_frame.png",
+      "bytes": 3448,
+      "sha256": "72c2926a1324c8ac7e4994669714810a081a8078cc59d48b723dc3e91c233b01",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/portrait.png",
+      "bytes": 10474,
+      "sha256": "5147ae9b944bef7a433c61fa99b3f3c58e4d8408d229cedb93cc2c3fabe77768",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/portrait_character.png",
+      "bytes": 11156,
+      "sha256": "965348f61364006649352090a126503ef323a31a4ca47d78cc014fb2bc0ef84e",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Status/trophy.svg",
+      "bytes": 6613,
+      "sha256": "ffecbfa22ac77b2322c2cfd1eef0ce60f0c855169fe38ad2a622a6e4bd8635d5",
+      "category": "other",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Textbox/textbox.png",
+      "bytes": 5841,
+      "sha256": "98205cb5f26dd35733b2bb7190453a4dee8bb1919750edc09af67fa4da62813a",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Textbox/textbox_arrow.png",
+      "bytes": 477,
+      "sha256": "06289a14d5a3e7a939a1da79b874df2085d8b87f9c09cc9303853202e5f0f162",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Textbox/textbox_icon_exclamationmark.png",
+      "bytes": 2786,
+      "sha256": "5edac7f2f8226f9655f2505762497a132de3b94418f7f148b31c8eccf3c34798",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Textbox/textbox_icon_questionmark.png",
+      "bytes": 4548,
+      "sha256": "146f89160caff80f2da70dc2f8f7bc6092d550396c31184e33fcb49ae2710c35",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/ui/Textbox/textbox_small.png",
+      "bytes": 3797,
+      "sha256": "6159bf2731def97e10cb050d65c74bc0fe8b48f8b7db94a03afb9c119f30bbef",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/weapons/arrow.png",
+      "bytes": 2623,
+      "sha256": "3436123cf14b2d55e812bd5630a94c6136345b9749b77c3ed34d90c332240899",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/weapons/hit_effect_sheet.png",
+      "bytes": 33254,
+      "sha256": "2844171d282b20ff2e2ca48fda6b7a94dd2439fb61e05e820357ab7f466fbfad",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    },
+    {
+      "path": "public/assets/weapons/sword_hitbox.png",
+      "bytes": 116000,
+      "sha256": "d1248e0a9ebcf988cdcffa94559977f1bff2388b2a72922436a8c9c984e36576",
+      "category": "artwork",
+      "license": "provenance-unverified",
+      "source": "Tandid/The-Hooded-Hero-V2"
+    }
+  ]
+}

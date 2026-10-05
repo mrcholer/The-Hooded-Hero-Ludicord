@@ -11,7 +11,7 @@ export default class MainMenu extends BaseScene {
         super("MainMenu", config);
         this.menu = [
             { scene: "PlayScene", text: "Story Mode" },
-            { scene: "HeroSelectScene", text: "Multiplayer" },
+            { scene: "", text: "Play Together" },
             { scene: "LevelSelect", text: "Levels" },
         ];
     }
@@ -77,7 +77,7 @@ export default class MainMenu extends BaseScene {
             .text(
                 this.config.width / 10 - 10,
                 this.config.height - 45,
-                `${localStorage.getItem("username")}`,
+                `${localStorage.getItem("hoodedHero.displayName") ?? "Discord Hero"}`,
                 {
                     fontFamily: "customFont",
                     fontSize: "30px",
@@ -204,7 +204,9 @@ export default class MainMenu extends BaseScene {
 
         textGO.on("pointerup", () => {
             this.game.canvas.classList.remove("custom-cursor");
-            if (menuItem.text === "Story Mode") {
+            if (menuItem.text === "Play Together") {
+                window.dispatchEvent(new Event("hoodedhero:party"));
+            } else if (menuItem.text === "Story Mode") {
                 this.cameras.main.fadeOut(500, 0, 0, 0);
 
                 setTimeout(() => this.scene.stop("MainMenu"), 500);
@@ -252,4 +254,3 @@ export default class MainMenu extends BaseScene {
         this.scene.start("PauseScene");
     }
 }
-

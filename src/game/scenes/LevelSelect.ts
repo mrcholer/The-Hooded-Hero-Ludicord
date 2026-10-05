@@ -112,6 +112,7 @@ class LevelSelect extends BaseScene {
                 this.config.height / 7 + 30,
                 "close-btn"
             )
+            .setName("close-btn")
             .setOrigin(0.5)
             .setScale(0.7)
             .setInteractive()
@@ -119,7 +120,7 @@ class LevelSelect extends BaseScene {
 
         closeBtn.on("pointerup", () => {
             this.selectFx.play();
-            this.scene.wake("MainMenu");
+            window.dispatchEvent(new Event("hoodedhero:menu"));
             this.scene.stop("LevelSelect");
             this.game.canvas.classList.remove("custom-cursor");
         });
@@ -144,13 +145,10 @@ class LevelSelect extends BaseScene {
             this.game.canvas.classList.remove("custom-cursor");
             this.cameras.main.fadeOut(500, 0, 0, 0);
 
-            setTimeout(() => this.scene.start("Loading"), 500);
-            setTimeout(() => this.scene.stop("Loading"), 4000);
-
             if (menuItem.scene) {
                 this.fluteFx.play();
                 this.registry.set("level", menuItem.level);
-                setTimeout(() => this.scene.start(menuItem.scene), 4000);
+                this.time.delayedCall(500, () => this.scene.start(menuItem.scene, { gameStatus: "NEW_GAME" }));
             }
         });
 
@@ -168,4 +166,3 @@ class LevelSelect extends BaseScene {
 }
 
 export default LevelSelect;
-

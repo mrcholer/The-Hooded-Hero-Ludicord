@@ -1,7 +1,7 @@
-let animationsInitialized = false;
+const initializedManagers = new WeakSet();
 
 export default (anims) => {
-    if (!animationsInitialized) {
+    if (!initializedManagers.has(anims)) {
         anims.create({
             key: "slime-run",
             frames: anims.generateFrameNumbers("slime", { start: 0, end: 11 }),
@@ -19,7 +19,6 @@ export default (anims) => {
             repeat: 0,
         });
 
-        animationsInitialized = true;
+        initializedManagers.add(anims);
     }
 };
-

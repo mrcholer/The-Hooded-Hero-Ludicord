@@ -1,7 +1,7 @@
-let animationsInitialized = false;
+const initializedManagers = new WeakSet();
 
 export default (anims) => {
-    if (!animationsInitialized) {
+    if (!initializedManagers.has(anims)) {
         anims.create({
             key: "mage-idle",
             frames: anims.generateFrameNumbers("mage", { start: 0, end: 7 }),
@@ -26,7 +26,6 @@ export default (anims) => {
             repeat: 0,
         });
 
-        animationsInitialized = true;
+        initializedManagers.add(anims);
     }
 };
-

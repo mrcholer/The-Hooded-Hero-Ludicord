@@ -1,3 +1,4 @@
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../animations/entities/crossbowAnims";
 import ProjectileManager from "../attacks/ProjectileManager";
 import Enemy from "./BaseEnemy";
@@ -55,4 +56,3 @@ class Crossbow extends Enemy {
 }
 
 export default Crossbow;
-

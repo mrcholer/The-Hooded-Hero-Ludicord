@@ -1,7 +1,7 @@
-let animationsInitialized = false;
+const initializedManagers = new WeakSet();
 
 export default (anims) => {
-    if (!animationsInitialized) {
+    if (!initializedManagers.has(anims)) {
         anims.create({
             key: "bat-idle",
             frames: anims.generateFrameNumbers("bat-idle", {
@@ -39,7 +39,6 @@ export default (anims) => {
             repeat: 0,
         });
 
-        animationsInitialized = true;
+        initializedManagers.add(anims);
     }
 };
-

@@ -1,3 +1,4 @@
+import type * as Phaser from "phaser";
 import BaseScene from "../BaseScene";
 
 class Controls extends BaseScene {
@@ -53,9 +54,9 @@ class Controls extends BaseScene {
             .setScale(0.5);
 
         this.add
-            .image(this.config.width / 3 - 20, 330, "q-key")
+            .text(this.config.width / 3 - 20, 330, "R", { fontFamily: "customFont", fontSize: "60px", color: "#000000" })
             .setOrigin(0.5)
-            .setScale(0.5);
+            .setScale(1);
 
         this.add
             .image(this.config.width / 3 + 80, 330, "e-key")
@@ -104,7 +105,7 @@ class Controls extends BaseScene {
             .text(
                 this.config.width / 1.75 + 20,
                 330,
-                "Projectile/Sword Attack",
+                "Bow / Sword",
                 {
                     fontFamily: "customFont",
                     fontSize: "40px",
@@ -129,6 +130,8 @@ class Controls extends BaseScene {
             .setColor("0x000");
 
         this.createCloseButton();
+        this.add.text(this.config.width / 2, 190, "Q/A/← · D/→ move    Z/W/↑/Space jump", { fontFamily: "customFont", fontSize: "25px", color: "#000000" }).setOrigin(0.5);
+        this.add.text(this.config.width / 2, 580, "Controller: stick / D-pad · A/✕ jump · RB/R1 run · B/○ bow · X/□ sword", { fontFamily: "customFont", fontSize: "23px", color: "#000000" }).setOrigin(0.5);
     }
 
     createCloseButton() {
@@ -138,6 +141,7 @@ class Controls extends BaseScene {
                 this.config.height / 7 + 20,
                 "close-btn"
             )
+            .setName("close-btn")
             .setOrigin(0.5)
             .setScale(0.7)
             .setInteractive()
@@ -167,4 +171,3 @@ class Controls extends BaseScene {
 }
 
 export default Controls;
-

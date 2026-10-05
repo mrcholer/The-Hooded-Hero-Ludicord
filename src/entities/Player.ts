@@ -1,6 +1,9 @@
 // @ts-nocheck
+import { addGameSound } from "@/lib/game-audio";
+import { gameInput } from "@/lib/game-input";
 
-import Phaser from "phaser";
+
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnimations from "../animations/entities/playerAnims";
 import MeleeWeapon from "../attacks/MeleeWeapon";
 import ProjectileManager from "../attacks/ProjectileManager";
@@ -37,11 +40,9 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     init() {
         this.initProperties(); // Initialize player-specific properties
         this.initSoundEffects(); // Load and set up sound effects for player actions
-        this.initKeyboardControls(); // Set up keyboard controls for player movement and actions
         this.initWeapons(); // Initialize player weapons (projectiles and melee)
         this.initHealthBar(); // Set up the health bar for the player
         this.initAnimations(); // Load and set up animations for the player
-        this.handlePlayerAttacks(); // Set up event listeners for player attacks
         this.initMovementSound(); // Set up movement sound effects
 
         this.damageNumbers = this.scene.add.group();
@@ -71,23 +72,11 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     // Method to initialize sound effects for player actions
     initSoundEffects() {
-        this.jumpFx = this.scene.sound.add("jump", { volume: 0.2 });
-        this.takeDamageFx = this.scene.sound.add("damage", { volume: 0.2 });
-        this.arrowFx = this.scene.sound.add("projectile-launch", { volume: 1 });
-        this.stepFx = this.scene.sound.add("step", { volume: 0.05 });
-        this.swingSwordFx = this.scene.sound.add("swipe", { volume: 0.1 });
-    }
-
-    // Method to set up keyboard controls for player movement and actions
-    initKeyboardControls() {
-        this.keyBindings = this.scene.input.keyboard.addKeys({
-            left: Phaser.Input.Keyboard.KeyCodes.LEFT,
-            right: Phaser.Input.Keyboard.KeyCodes.RIGHT,
-            space: Phaser.Input.Keyboard.KeyCodes.SPACE,
-            shift: Phaser.Input.Keyboard.KeyCodes.SHIFT,
-            keyQ: Phaser.Input.Keyboard.KeyCodes.Q,
-            keyE: Phaser.Input.Keyboard.KeyCodes.E,
-        });
+        this.jumpFx = addGameSound(this.scene, "jump", { volume: 0.2 });
+        this.takeDamageFx = addGameSound(this.scene, "damage", { volume: 0.2 });
+        this.arrowFx = addGameSound(this.scene, "projectile-launch", { volume: 1 });
+        this.stepFx = addGameSound(this.scene, "step", { volume: 0.05 });
+        this.swingSwordFx = addGameSound(this.scene, "swipe", { volume: 0.1 });
     }
 
     // Method to initialize player weapons (projectiles and melee)
@@ -135,19 +124,24 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     // Method to initialize event listeners for player-specific events
     initEvents() {
         // Add an event listener for the UPDATE event of the scene, calling this.update method
-        this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
+        const scene = this.scene;
+        scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
+        this.once(Phaser.GameObjects.Events.DESTROY, () => scene.events.off(Phaser.Scenes.Events.UPDATE, this.update, this));
     }
 
     // Update method called on every frame to update player state and behaviors
     update() {
+        const controls = gameInput.gameplay();
         // Skip update if player has been hit or is not existing in the scene
-        if (this.hasBeenHit || !this.body) {
+        if (this.hasBeenHit || !this.body?.enable) {
             return;
         }
 
         // Check if the player is out of bounds and handle movement
         this.checkOutOfBounds();
-        this.handleMovement();
+        this.handleMovement(controls);
+        if (controls.bow) this.handleProjectileAttack();
+        if (controls.sword) this.handleMeleeAttack();
 
         // this.addDebugger()
     }
@@ -161,20 +155,15 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     // Method to handle player movement based on keyboard input
-    handleMovement() {
-        // Destructure keyboard bindings for left, right, space, and shift keys
-        const { left, right, space, shift } = this.keyBindings;
-        const isSpaceJustDown = Phaser.Input.Keyboard.JustDown(space);
+    handleMovement(controls) {
         const onFloor = this.body.onFloor();
 
         // Handle horizontal movement based on left and right arrow keys
-        this.handleHorizontalMovement(left, right);
+        this.handleRunning(controls.sprint, onFloor);
+        this.handleHorizontalMovement(controls.horizontal);
 
         // Handle jumping when space key is pressed and player is on the floor
-        this.handleJumping(isSpaceJustDown, onFloor);
-
-        // Handle running when shift key is pressed and player is on the floor
-        this.handleRunning(shift, onFloor);
+        this.handleJumping(controls.jump, onFloor);
 
         // Prevent animation overlap during specific actions (e.g., shooting arrow or melee attack)
         if (
@@ -189,15 +178,15 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     // Method to handle horizontal movement of the player
-    handleHorizontalMovement(left, right) {
+    handleHorizontalMovement(horizontal) {
         // Move player left or right based on keyboard input and update facing direction
-        if (left.isDown) {
+        if (horizontal < 0) {
             this.lastDirection = Phaser.Physics.Arcade.FACING_LEFT;
-            this.setVelocityX(-this.playerSpeed);
+            this.setVelocityX(horizontal * this.playerSpeed);
             this.setFlipX(true);
-        } else if (right.isDown) {
+        } else if (horizontal > 0) {
             this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
-            this.setVelocityX(this.playerSpeed);
+            this.setVelocityX(horizontal * this.playerSpeed);
             this.setFlipX(false);
         } else {
             this.setVelocityX(0); // Stop horizontal movement if no keys are pressed
@@ -223,9 +212,9 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     // Method to handle running (increased speed) when shift key is pressed
-    handleRunning(shift, onFloor) {
+    handleRunning(sprint, onFloor) {
         // Increase player speed when shift key is pressed and player is on the floor
-        if (shift.isDown && onFloor) {
+        if (sprint && onFloor) {
             this.playerSpeed = 650;
         } else {
             this.playerSpeed = 500; // Reset speed to default if shift key is released
@@ -242,27 +231,12 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             : this.play("jump", true);
     }
 
-    // Method to handle player attacks (keyboard input for projectile and melee attacks)
-    handlePlayerAttacks() {
-        const { keyQ, keyE } = this.keyBindings;
-
-        // Listen for key press to handle projectile attack (arrow)
-        keyQ.on("down", () => {
-            this.handleProjectileAttack();
-        });
-
-        // Listen for key press to handle melee attack (sword)
-        keyE.on("down", () => {
-            this.handleMeleeAttack();
-        });
-    }
-
     // Method to handle projectile (arrow) attack
     handleProjectileAttack() {
         const delay = 300; // Delay for coordinating animation and sound effect
         this.play("shoot-arrow", true); // Play shoot arrow animation
-        setTimeout(() => this.arrowFx.play(), delay); // Play projectile launch sound effect
-        setTimeout(() => this.projectiles.fireProjectile(this, "arrow"), delay); // Fire projectile
+        this.scene.time.delayedCall(delay, () => this.arrowFx.play()); // Play projectile launch sound effect
+        this.scene.time.delayedCall(delay, () => this.projectiles.fireProjectile(this, "arrow")); // Fire projectile
     }
 
     // Method to handle melee attack (sword swing)
@@ -343,7 +317,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         }
 
         // Apply vertical velocity to bounce upward
-        setTimeout(() => this.setVelocityY(-this.bounceVelocity), 0);
+        this.scene.time.delayedCall(0, () => this.setVelocityY(-this.bounceVelocity));
     }
 
     // Method to handle player taking damage from a source (enemy or projectile)
@@ -355,7 +329,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         }
 
         // Reduce player health based on damage from the source
-        this.health -= source.damage || source.properties.damage || 0;
+        this.health -= source.damage || source.properties?.damage || 0;
 
         // Trigger PLAYER_LOSE event if player health drops to zero
         if (this.health <= 0) {
@@ -403,4 +377,3 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 }
 
 export default Player;
-

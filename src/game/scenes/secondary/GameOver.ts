@@ -1,4 +1,5 @@
-import EventEmitter from "../../../events/Emitter";
+import { addGameSound } from "@/lib/game-audio";
+
 import BaseScene from "../BaseScene";
 
 class GameOverScene extends BaseScene {
@@ -13,7 +14,7 @@ class GameOverScene extends BaseScene {
 
         super.create();
 
-        this.gameOver = this.sound.add("lose", { volume: 0.1 }).play();
+        this.gameOver = addGameSound(this, "lose", { volume: 0.1 }).play();
 
         this.setupUI();
     }
@@ -62,7 +63,7 @@ class GameOverScene extends BaseScene {
             "home-btn-big",
             () => {
                 this.scene.stop("PlayScene");
-                this.scene.start("MainMenu");
+                window.dispatchEvent(new Event("hoodedhero:menu"));
             }
         );
     }
@@ -74,11 +75,10 @@ class GameOverScene extends BaseScene {
             "restart-btn-big",
             () => {
                 this.scene.stop("GameOverScene");
-                EventEmitter.emit("RESTART_GAME");
+                this.scene.start("PlayScene", { gameStatus: "NEW_GAME" });
             }
         );
     }
 }
 
 export default GameOverScene;
-

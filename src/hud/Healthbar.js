@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 
 class HealthBar {
     constructor(scene, x, y, scale = 1, health) {
@@ -90,4 +90,3 @@ class HealthBar {
 }
 
 export default HealthBar;
-

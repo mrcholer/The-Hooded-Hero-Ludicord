@@ -1,4 +1,5 @@
-import EventEmitter from "../../../events/Emitter";
+import { addGameSound } from "@/lib/game-audio";
+
 import BaseScene from "../BaseScene";
 
 class VictoryScene extends BaseScene {
@@ -20,7 +21,7 @@ class VictoryScene extends BaseScene {
 
         super.create();
 
-        this.victory = this.sound.add("win", { volume: 0.1 }).play();
+        this.victory = addGameSound(this, "win", { volume: 0.1 }).play();
 
         this.setupUI();
     }
@@ -168,7 +169,7 @@ class VictoryScene extends BaseScene {
             to: this.score,
             duration: 500, // Adjust duration as needed
             onUpdate: (tween) => {
-                currentScore = Math.floor(tween.getValue());
+                currentScore = Math.floor(tween.getValue() ?? 0);
                 this.scoreText.setText(`${currentScore}`);
             },
             onComplete: () => {
@@ -184,7 +185,7 @@ class VictoryScene extends BaseScene {
             "home-btn-big",
             () => {
                 this.scene.stop("PlayScene");
-                this.scene.start("MainMenu");
+                window.dispatchEvent(new Event("hoodedhero:menu"));
             }
         );
     }
@@ -196,7 +197,7 @@ class VictoryScene extends BaseScene {
             "restart-btn-big",
             () => {
                 this.scene.stop("VictoryScene");
-                EventEmitter.emit("RESTART_GAME");
+                this.scene.start("PlayScene", { gameStatus: "NEW_GAME" });
             }
         );
     }
@@ -215,7 +216,7 @@ class VictoryScene extends BaseScene {
                     this.scene.stop("VictoryScene");
                     this.registry.inc("level", 1);
                     this.registry.inc("unlocked-levels", 1);
-                    EventEmitter.emit("RESTART_GAME");
+                    this.scene.start("PlayScene", { gameStatus: "NEW_GAME" });
                 }
             }
         );
@@ -223,4 +224,3 @@ class VictoryScene extends BaseScene {
 }
 
 export default VictoryScene;
-

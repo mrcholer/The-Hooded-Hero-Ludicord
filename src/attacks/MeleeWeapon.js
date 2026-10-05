@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import EffectManager from "../effects/EffectManager";
 
 class MeleeWeapon extends Phaser.Physics.Arcade.Sprite {
@@ -68,4 +68,3 @@ class MeleeWeapon extends Phaser.Physics.Arcade.Sprite {
 }
 
 export default MeleeWeapon;
-

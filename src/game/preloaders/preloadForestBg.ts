@@ -1,3 +1,4 @@
+import type * as Phaser from "phaser";
 export function preloadForestBg(scene: Phaser.Scene) {
     // FOREST BACKGROUNDS
 
@@ -10,4 +11,3 @@ export function preloadForestBg(scene: Phaser.Scene) {
     scene.load.image("tree-1", "backgrounds/tree1.png");
     scene.load.image("tree-2", "backgrounds/tree2.png");
 }
-

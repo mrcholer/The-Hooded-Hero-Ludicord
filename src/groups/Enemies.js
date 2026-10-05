@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import Archer from "../entities/Archer";
 import Bat from "../entities/Bat";
 import Bee from "../entities/Bee";
@@ -50,4 +50,3 @@ class Enemies extends Phaser.GameObjects.Group {
 }
 
 export default Enemies;
-

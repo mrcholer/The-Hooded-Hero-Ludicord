@@ -1,4 +1,5 @@
 // @ts-nocheck
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../../animations";
 import Player from "../../entities/Player";
 import EventEmitter from "../../events/Emitter";
@@ -20,10 +21,11 @@ class PlayScene extends BaseScene {
         this.isRespawning = false; // Add this flag
     }
 
-    create({ gameStatus }) {
+    create({ gameStatus } = {}) {
         super.create();
         this.hud = new Hud(this, 0, 0, this.numOfLives);
         this.playBgMusic();
+        localStorage.setItem("hoodedHero.level", String(this.getCurrentLevel()));
 
         const map = this.createMap();
         initAnims(this.anims);
@@ -59,9 +61,7 @@ class PlayScene extends BaseScene {
         this.handleCheckpoints(playerZones.checkpoints, player);
         this.setupFollowupCameraOn(player);
 
-        if (gameStatus !== "PLAYER_LOSE") {
-            this.createGameEvents();
-        }
+        this.createGameEvents();
     }
 
     playBgMusic() {
@@ -242,7 +242,7 @@ class PlayScene extends BaseScene {
     }
 
     createGameEvents() {
-        EventEmitter.on("RESPAWN", () => {
+        this.respawnHandler = () => {
             if (this.isRespawning) return; // If already respawning, do nothing
 
             this.isRespawning = true; // Set the flag to true to indicate respawning
@@ -258,15 +258,17 @@ class PlayScene extends BaseScene {
                     this.handlePlayerRespawn();
                 }
             }
-        });
+        };
 
-        EventEmitter.on("PLAYER_LOSE", () => {
+        this.loseHandler = () => {
             this.scene.stop("PlayScene");
             this.scene.launch("GameOverScene");
-        });
-
-        EventEmitter.on("RESTART_GAME", () => {
-            this.scene.restart({ gameStatus: "PLAYER_LOSE" });
+        };
+        EventEmitter.on("RESPAWN", this.respawnHandler);
+        EventEmitter.on("PLAYER_LOSE", this.loseHandler);
+        this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+            EventEmitter.off("RESPAWN", this.respawnHandler);
+            EventEmitter.off("PLAYER_LOSE", this.loseHandler);
         });
     }
 
@@ -500,4 +502,3 @@ class PlayScene extends BaseScene {
 }
 
 export default PlayScene;
-

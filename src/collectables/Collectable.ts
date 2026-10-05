@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 
 class Collectable extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y, key) {
@@ -24,4 +24,3 @@ class Collectable extends Phaser.Physics.Arcade.Sprite {
 }
 
 export default Collectable;
-

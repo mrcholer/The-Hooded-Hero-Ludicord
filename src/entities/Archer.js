@@ -1,3 +1,4 @@
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../animations/entities/archerAnims";
 import ProjectileManager from "../attacks/ProjectileManager";
 import Enemy from "./BaseEnemy";
@@ -82,4 +83,3 @@ class Archer extends Enemy {
 }
 
 export default Archer;
-

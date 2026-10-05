@@ -1,8 +1,10 @@
-import { GameObjects, Scene } from "phaser";
-// import io, { Socket } from "socket.io-client";
+import { addGameSound } from "@/lib/game-audio";
+import { gameInput } from "@/lib/game-input";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 
-export default class BaseScene extends Scene {
-    // static socket: Socket;
+
+export default class BaseScene extends Phaser.Scene {
+
     config: any;
 
     // Sound Effects
@@ -29,14 +31,12 @@ export default class BaseScene extends Scene {
     lineHeight: number;
 
     fontOptions: {};
-    leaves: GameObjects.Image[];
-    arrows: GameObjects.Image[];
+    leaves: Phaser.GameObjects.Image[];
+    arrows: Phaser.GameObjects.Image[];
 
     constructor(key: any, config: any) {
         super(key);
-        // if (!BaseScene.socket) {
-        //     BaseScene.socket = io("http://localhost:3000");
-        // }
+
         this.config = config;
         this.screenCenter = [this.config.width / 2, this.config.height / 2];
         this.fontSize = 60;
@@ -54,6 +54,11 @@ export default class BaseScene extends Scene {
     create() {
         this.addSoundEffects();
         this.addMusicThemes();
+        this.applyAudioPreferences();
+    }
+
+    applyAudioPreferences() {
+        this.sound.mute = localStorage.getItem("hoodedHero.muted") === "true";
     }
 
     createBackground() {
@@ -76,38 +81,38 @@ export default class BaseScene extends Scene {
     }
 
     addSoundEffects() {
-        this.cursorOverFx = this.sound.add("cursorOver", { volume: 0.4 });
-        this.selectFx = this.sound.add("select", { volume: 0.4 });
-        this.pageFlipFx = this.sound.add("page-flip", { volume: 0.4 });
-        this.fluteFx = this.sound.add("flute", { volume: 0.4 });
-        this.collectFx = this.sound.add("coin-pickup", { volume: 0.05 });
-        this.failFx = this.sound.add("fail", { volume: 0.4 });
-        this.countdownFx = this.sound.add("countdown", { volume: 0.4 });
-        this.goFx = this.sound.add("go", { volume: 0.4 });
+        this.cursorOverFx = addGameSound(this, "cursorOver", { volume: 0.4 });
+        this.selectFx = addGameSound(this, "select", { volume: 0.4 });
+        this.pageFlipFx = addGameSound(this, "page-flip", { volume: 0.4 });
+        this.fluteFx = addGameSound(this, "flute", { volume: 0.4 });
+        this.collectFx = addGameSound(this, "coin-pickup", { volume: 0.05 });
+        this.failFx = addGameSound(this, "fail", { volume: 0.4 });
+        this.countdownFx = addGameSound(this, "countdown", { volume: 0.4 });
+        this.goFx = addGameSound(this, "go", { volume: 0.4 });
     }
 
     addMusicThemes() {
-        this.menuBGM = this.sound.add("menu-theme", {
+        this.menuBGM = addGameSound(this, "menu-theme", {
             loop: true,
             volume: 0.04,
         });
-        this.forestBGM = this.sound.add("forest-theme", {
+        this.forestBGM = addGameSound(this, "forest-theme", {
             loop: true,
             volume: 0.04,
         });
-        this.caveBGM = this.sound.add("cave-theme", {
+        this.caveBGM = addGameSound(this, "cave-theme", {
             loop: true,
             volume: 0.04,
         });
-        this.bossBGM = this.sound.add("boss-theme", {
+        this.bossBGM = addGameSound(this, "boss-theme", {
             loop: true,
             volume: 0.04,
         });
-        this.onlineBGM = this.sound.add("online-theme", {
+        this.onlineBGM = addGameSound(this, "online-theme", {
             loop: true,
             volume: 0.04,
         });
-        this.sakuraBGM = this.sound.add("sakura-theme", {
+        this.sakuraBGM = addGameSound(this, "sakura-theme", {
             loop: true,
             volume: 0.04,
         });
@@ -199,10 +204,12 @@ export default class BaseScene extends Scene {
             .setColor("#000000");
 
         const container = this.add.container(x, y, [button, buttonText]);
+        container.setName(texture);
         container.setSize(button.width * 0.7, button.height * 0.7);
         container.setDepth(2).setInteractive();
 
         container.on("pointerup", () => {
+            gameInput.reset();
             this.selectFx.play();
             this.game.canvas.classList.remove("custom-cursor");
             callback();
@@ -253,6 +260,7 @@ export default class BaseScene extends Scene {
         });
         button.on("pointerdown", () => {});
         button.on("pointerup", () => {
+            gameInput.reset();
             this.selectFx.play();
             this.input.enabled = false;
             onClick();
@@ -286,4 +294,3 @@ export default class BaseScene extends Scene {
         });
     }
 }
-

@@ -1,3 +1,4 @@
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../animations/entities/spiderAnims";
 import Enemy from "./BaseEnemy";
 
@@ -77,4 +78,3 @@ class Spider extends Enemy {
 }
 
 export default Spider;
-

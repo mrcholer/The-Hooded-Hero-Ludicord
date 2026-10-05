@@ -1,3 +1,4 @@
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../animations/entities/bossAnims.js";
 import Enemy from "./BaseEnemy.js";
 
@@ -108,4 +109,3 @@ class Boss extends Enemy {
 }
 
 export default Boss;
-

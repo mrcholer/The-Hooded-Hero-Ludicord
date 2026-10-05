@@ -1,3 +1,4 @@
+import type * as Phaser from "phaser";
 export function preloadSpriteSheets(scene: Phaser.Scene) {
     // ------------------- PLAYER MOVEMENT --------------------------------
 
@@ -216,4 +217,3 @@ export function preloadSpriteSheets(scene: Phaser.Scene) {
         frameHeight: 186,
     });
 }
-

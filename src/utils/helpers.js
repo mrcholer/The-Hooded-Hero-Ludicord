@@ -27,4 +27,3 @@ const generateRandomHint = (scene, width, height) => {
 };
 
 export { generateRandomHint, getTimestamp };
-

@@ -1,339 +1,99 @@
-import Phaser from "phaser";
+import { addGameSound } from "@/lib/game-audio";
+import { gameInput } from "@/lib/game-input";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnimations from "../animations/entities/onlinePlayerAnims";
 import EventEmitter from "../events/Emitter";
 import anims from "../mixins/anims";
 import collidable from "../mixins/collidable";
+import { adventureNetwork } from "@/lib/adventure-network";
 
 class OnlinePlayer extends Phaser.Physics.Arcade.Sprite {
-    constructor(scene, x, y, spriteKey, username, socket, me) {
-        super(scene, x, y, spriteKey);
-        this.socket = socket;
-        this.spriteKey = spriteKey;
-        this.username = username;
-        this.me = me;
-        this.moveState = {
-            x,
-            y,
-            left: false,
-            right: false,
-            space: false,
-        };
-
-        scene.add.existing(this);
-        scene.physics.add.existing(this);
-
-        // Mixins
-        Object.assign(this, collidable);
-        Object.assign(this, anims);
-
-        this.init();
-        this.initEvents();
-
-        this.debugText = this.scene.add
-            .text(-300, -300, "", { font: "32px Arial", fill: "#ff0000" })
-            .setScrollFactor(0)
-            .setDepth(30);
-
-        this.graphics = this.scene.add.graphics().setDepth(30);
-    }
-
-    init() {
-        this.initProperties();
-        this.initSoundEffects();
-        this.initKeyboardControls();
-        this.initAnimations();
-        this.initMovementSound();
-    }
-
-    // Method to initialize player-specific properties
-    initProperties() {
-        this.gravity = 2500;
-        this.playerSpeed = 500;
-        this.jumpCount = 0;
-        this.consecutiveJumps = 1;
-        this.hasBeenHit = false;
-        this.bounceVelocity = 400;
-        this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
-        this.body.setSize(120, 150);
-
-        this.body.setGravityY(this.gravity);
-        this.setCollideWorldBounds(true);
-        this.body.setMaxVelocityY(1000);
-        // this.setOrigin(0.5, 1);
-    }
-
-    // Method to initialize sound effects for player actions
-    initSoundEffects() {
-        this.jumpFx = this.scene.sound.add("jump", { volume: 0.2 });
-        this.takeDamageFx = this.scene.sound.add("damage", { volume: 0.2 });
-        this.stepFx = this.scene.sound.add("step", { volume: 0.05 });
-    }
-
-    initKeyboardControls() {
-        this.keyBindings = this.scene.input.keyboard.addKeys({
-            left: Phaser.Input.Keyboard.KeyCodes.LEFT,
-            right: Phaser.Input.Keyboard.KeyCodes.RIGHT,
-            space: Phaser.Input.Keyboard.KeyCodes.SPACE,
-            shift: Phaser.Input.Keyboard.KeyCodes.SHIFT,
-        });
-    }
-
-    // Method to load and set up animations for the player
-    initAnimations() {
-        initAnimations(this.scene.anims);
-    }
-
-    // Method to set up repeating event to play footstep sound effects while the player is running
-    initMovementSound() {
-        this.scene.time.addEvent({
-            delay: 350,
-            repeat: -1,
-            callbackScope: this,
-            callback: () => {
-                if (this.isPlayingAnims("run")) {
-                    this.stepFx.play();
-                }
-            },
-        });
-    }
-
-    initEvents() {
-        this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
-    }
-
-    // Method to create a tint animation when the player takes damage
-    playDamageTween() {
-        return this.scene.tweens.add({
-            targets: this,
-            alpha: 50,
-            duration: 250,
-            ease: "Power1",
-            yoyo: true,
-            tint: 0x999999,
-        });
-    }
-
-    // Method to bounce the player off a source (e.g., enemy or obstacle)
-    bounceOff(source) {
-        // Determine direction to bounce based on collision and set velocities
-        if (source.body) {
-            this.body.touching.right
-                ? this.setVelocityX(-this.bounceVelocity)
-                : this.setVelocityX(this.bounceVelocity);
-        } else {
-            this.body.blocked.right
-                ? this.setVelocityX(-this.bounceVelocity)
-                : this.setVelocityX(this.bounceVelocity);
-        }
-
-        // Apply vertical velocity to bounce upward
-        setTimeout(() => this.setVelocityY(-this.bounceVelocity), 0);
-    }
-
-    takesHit(source) {
-        // Play damage sound effect and check if player has already been hit
-        this.takeDamageFx.play();
-        if (this.hasBeenHit) {
-            return;
-        }
-
-        // Apply hit reaction: bounce off, play damage animation
-        this.hasBeenHit = true;
-        this.bounceOff(source);
-        const hitAnim = this.playDamageTween();
-
-        // Trigger hit effect on the source of damage (e.g., enemy or projectile)
-        source.deliversHit && source.deliversHit(this);
-
-        // Reset hit state and animation tint after a delay
-        this.scene.time.delayedCall(500, () => {
-            this.hasBeenHit = false;
-            hitAnim.stop();
-            this.clearTint();
-        });
-    }
-
-    update() {
-        if (this.hasBeenHit || !this.body) {
-            return;
-        }
-
-        // Check if the player is out of bounds and handle movement
-        this.checkOutOfBounds();
-        this.handleMovement();
-
-        // this.addDebugger();
-    }
-
-    // Method to check if the player is out of bounds and trigger appropriate actions
-    checkOutOfBounds() {
-        // Emit PLAYER_LOSE event if player's top boundary exceeds a certain threshold
-        if (this.getBounds().top > this.scene.config.height * 2.5) {
-            EventEmitter.emit("RESPAWN");
-        }
-    }
-
-    handleMovement() {
-        const { left, right, space, shift } = this.keyBindings;
-        const isSpaceJustDown = Phaser.Input.Keyboard.JustDown(space);
-        const onFloor = this.body.onFloor();
-
-        // Handle horizontal movement based on left and right arrow keys
-        this.handleHorizontalMovement(left, right);
-
-        // Handle jumping when space key is pressed and player is on the floor
-        this.handleJumping(isSpaceJustDown, onFloor);
-
-        // Handle running when shift key is pressed and player is on the floor
-        this.handleRunning(shift, onFloor);
-
-        // Update player animation based on current state (running, idle, jumping)
-        this.updatePlayerAnimation(onFloor);
-    }
-
-    // TODO: Need to fix the player in socket
-    // Method to handle horizontal movement of the player
-    handleHorizontalMovement(left, right) {
-        if (left.isDown && this.me) {
-            this.lastDirection = Phaser.Physics.Arcade.FACING_LEFT;
-            this.setVelocityX(-this.playerSpeed);
-            this.setFlipX(true);
-            if (this.socket) {
-                this.moveState.x = this.x;
-                this.moveState.y = this.y;
-                this.moveState.left = true;
-                this.moveState.right = false;
-                this.socket.emit("updatePlayer", this.moveState);
-            }
-        } else if (right.isDown && this.me) {
-            this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
-            this.setVelocityX(this.playerSpeed);
-            this.setFlipX(false);
-            if (this.socket) {
-                this.moveState.x = this.x;
-                this.moveState.y = this.y;
-                this.moveState.left = false;
-                this.moveState.right = true;
-                this.socket.emit("updatePlayer", this.moveState);
-            }
-        } else {
-            this.setVelocityX(0);
-            if (this.socket) {
-                this.moveState.x = this.x;
-                this.moveState.y = this.y;
-                this.moveState.left = false;
-                this.moveState.right = false;
-                this.socket.emit("updatePlayer", this.moveState);
-            }
-        }
-    }
-
-    // Method to handle jumping behavior of the player
-    handleJumping(isSpaceJustDown, onFloor) {
-        if (
-            isSpaceJustDown &&
-            this.me &&
-            (onFloor || this.jumpCount < this.consecutiveJumps)
-        ) {
-            this.jumpFx.play();
-            this.setVelocityY(-1000);
-            this.jumpCount++;
-            if (this.socket) {
-                this.moveState.x = this.x;
-                this.moveState.y = this.y;
-                this.moveState.space = true;
-                this.socket.emit("updatePlayer", this.moveState);
-            }
-        }
-
-        // Reset jump count if player is back on the floor
-        if (onFloor) {
-            this.jumpCount = 0;
-        }
-    }
-
-    // Method to handle running (increased speed) when shift key is pressed
-    handleRunning(shift, onFloor) {
-        if (shift.isDown && onFloor && this.me) {
-            this.playerSpeed = 650;
-        } else {
-            this.playerSpeed = 500;
-        }
-    }
-
-    // Method to update player animation based on current state (running, idle, jumping)
-    updatePlayerAnimation(onFloor) {
-        // Play appropriate animation based on player's movement and state
-        onFloor
-            ? this.body.velocity.x !== 0
-                ? this.play(`run-${this.spriteKey}`, true)
-                : this.play(`idle-${this.spriteKey}`, true)
-            : this.play(`jump-${this.spriteKey}`, true);
-    }
-
-    updateOtherPlayer(moveState) {
-        // Handle left movement
-        if (moveState.left) {
-            if (!this.facingLeft) {
-                this.flipX = !this.flipX;
-                this.facingLeft = true;
-            }
-
-            this.setVelocityX(-this.playerSpeed);
-            this.setPosition(moveState.x, moveState.y);
-        }
-
-        // Handle right movement
-        if (moveState.right) {
-            if (this.facingLeft) {
-                this.flipX = !this.flipX;
-                this.facingLeft = false;
-            }
-            this.setVelocityX(this.playerSpeed);
-            this.setPosition(moveState.x, moveState.y);
-        }
-
-        // Handle jump
-        if (moveState.space) {
-            this.setVelocityY(-this.jumpSpeed); // Assuming jumpSpeed is defined
-            this.setPosition(moveState.x, moveState.y);
-        }
-
-        // // Neutral state (opponent not moving)
-        // if (!moveState.left && !moveState.right && !moveState.space) {
-        //     if (this.anims.currentAnim?.key !== `idle-${this.spriteKey}`) {
-        //         this.anims.stop();
-        //         this.play(`idle-${this.spriteKey}`, true);
-        //     }
-        //     this.setVelocityX(0);
-        //     this.setPosition(moveState.x, moveState.y);
-        // }
-    }
-
-    addDebugger() {
-        if (this.body) {
-            // this.debugText.setText(
-            //     `x: ${this.x.toFixed(0)}, y: ${this.y.toFixed(0)}\n` +
-            //         `velocityX: ${this.body.velocity.x.toFixed(
-            //             0
-            //         )}, velocityY: ${this.body.velocity.y.toFixed(0)}\n`
-            // );
-
-            this.debugText.setText(
-                `x: ${this.moveState.x}, y: ${this.moveState.y}\n` +
-                    `left: ${this.moveState.left}, right: ${this.moveState.right}\n` +
-                    `jump: ${this.moveState.space}`
-            );
-
-            this.graphics.clear(); // Clear previous drawings
-            this.graphics.lineStyle(2, 0xff0000); // Line style: thickness (2 pixels), color (red)
-            this.graphics.beginPath();
-            this.graphics.moveTo(this.x, this.y);
-            this.graphics.lineTo(500, 100); // Fixed point example
-            this.graphics.strokePath();
-        }
-    }
+  constructor(scene, x, y, spriteKey, displayName, me) {
+    super(scene, x, y, spriteKey);
+    this.spriteKey = spriteKey;
+    this.displayName = displayName;
+    this.me = me;
+    this.sequence = 0;
+    this.lastNetworkAt = 0;
+    this.targetState = null;
+    scene.add.existing(this);
+    scene.physics.add.existing(this);
+    Object.assign(this, collidable);
+    Object.assign(this, anims);
+    this.init();
+    this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
+    this.once(Phaser.GameObjects.Events.DESTROY, () => scene.events.off(Phaser.Scenes.Events.UPDATE, this.update, this));
+  }
+  init() {
+    this.gravity = 2500;
+    this.playerSpeed = 500;
+    this.jumpCount = 0;
+    this.consecutiveJumps = 1;
+    this.hasBeenHit = false;
+    this.bounceVelocity = 400;
+    this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
+    this.body.setSize(120, 150).setGravityY(this.gravity).setMaxVelocityY(1000);
+    this.setCollideWorldBounds(true);
+    this.jumpFx = addGameSound(this.scene, "jump", { volume: 0.2 });
+    this.takeDamageFx = addGameSound(this.scene, "damage", { volume: 0.2 });
+    this.stepFx = addGameSound(this.scene, "step", { volume: 0.05 });
+    initAnimations(this.scene.anims);
+  }
+  update(_time, delta) {
+    if (!this.body) return;
+    if (!this.me) { this.interpolateRemote(delta); return; }
+    const controls = gameInput.gameplay();
+    if (!adventureNetwork.isConnected() || !this.scene.input.keyboard.enabled) { this.setVelocityX(0); this.wasDisconnected ||= !adventureNetwork.isConnected(); return; }
+    if (this.hasBeenHit) return;
+    this.checkOutOfBounds();
+    this.handleMovement(controls);
+    this.sendMovement();
+  }
+  handleMovement(controls) {
+    const jumpDown = controls.jump;
+    const onFloor = this.body.onFloor();
+    this.playerSpeed = controls.sprint && onFloor ? 650 : 500;
+    if (controls.horizontal < 0) { this.lastDirection = Phaser.Physics.Arcade.FACING_LEFT; this.setVelocityX(controls.horizontal * this.playerSpeed); this.setFlipX(true); }
+    else if (controls.horizontal > 0) { this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT; this.setVelocityX(controls.horizontal * this.playerSpeed); this.setFlipX(false); }
+    else this.setVelocityX(0);
+    if (jumpDown && (onFloor || this.jumpCount < this.consecutiveJumps)) { this.jumpFx.play(); this.setVelocityY(-1000); this.jumpCount += 1; }
+    if (onFloor) this.jumpCount = 0;
+    this.play(onFloor ? (this.body.velocity.x ? `run-${this.spriteKey}` : `idle-${this.spriteKey}`) : `jump-${this.spriteKey}`, true);
+  }
+  sendMovement(force = false) {
+    const now = performance.now();
+    if (!force && now - this.lastNetworkAt < 50) return;
+    this.lastNetworkAt = now;
+    this.sequence += 1;
+    const onFloor = this.body.onFloor();
+    adventureNetwork.send("player:move", {
+      x: this.x, y: this.y, velocityX: this.body.velocity.x, velocityY: this.body.velocity.y,
+      facing: this.flipX ? "left" : "right",
+      animation: onFloor ? (Math.abs(this.body.velocity.x) > 1 ? "run" : "idle") : "jump",
+      sequence: this.sequence,
+    });
+  }
+  updateOtherPlayer(state) {
+    if (!state || state.sequence <= (this.targetState?.sequence ?? -1)) return;
+    this.targetState = state;
+  }
+  interpolateRemote(delta) {
+    const state = this.targetState;
+    if (!state) return;
+    const factor = 1 - Math.pow(0.001, Math.min(delta, 100) / 1000);
+    this.x = Phaser.Math.Linear(this.x, state.x, Math.max(0.12, factor));
+    this.y = Phaser.Math.Linear(this.y, state.y, Math.max(0.12, factor));
+    this.setFlipX(state.facing === "left");
+    this.play(`${state.animation}-${this.spriteKey}`, true);
+  }
+  checkOutOfBounds() { if (this.getBounds().top > this.scene.config.height * 2.5) EventEmitter.emit("RESPAWN"); }
+  playDamageTween() { return this.scene.tweens.add({ targets: this, alpha: 0.35, duration: 250, ease: "Power1", yoyo: true }); }
+  bounceOff(source) { this.setVelocityX(source.body?.touching?.right || this.body.blocked.right ? -this.bounceVelocity : this.bounceVelocity); this.scene.time.delayedCall(0, () => this.setVelocityY(-this.bounceVelocity)); }
+  takesHit(source) {
+    if (this.hasBeenHit) return;
+    this.takeDamageFx.play(); this.hasBeenHit = true; this.bounceOff(source);
+    const tween = this.playDamageTween(); source.deliversHit?.(this);
+    this.scene.time.delayedCall(500, () => { this.hasBeenHit = false; tween.stop(); this.clearTint(); });
+  }
 }
-
 export default OnlinePlayer;
-

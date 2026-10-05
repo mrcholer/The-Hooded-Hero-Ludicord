@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 
 class EventEmitter extends Phaser.Events.EventEmitter {
     constructor() {
@@ -7,4 +7,3 @@ class EventEmitter extends Phaser.Events.EventEmitter {
 }
 
 export default new EventEmitter();
-

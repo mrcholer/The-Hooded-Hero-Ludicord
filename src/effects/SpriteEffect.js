@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 
 class SpriteEffect extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y, effectName, impactPosition) {

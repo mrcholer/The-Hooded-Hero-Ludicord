@@ -1,7 +1,7 @@
-let animationsInitialized = false;
+const initializedManagers = new WeakSet();
 
 export default (anims) => {
-    if (!animationsInitialized) {
+    if (!initializedManagers.has(anims)) {
         anims.create({
             key: "spider-run",
             frames: anims.generateFrameNumbers("spider", { start: 0, end: 10 }),
@@ -28,7 +28,6 @@ export default (anims) => {
             repeat: 0,
         });
 
-        animationsInitialized = true;
+        initializedManagers.add(anims);
     }
 };
-

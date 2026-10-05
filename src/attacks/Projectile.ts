@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import EffectManager from "../effects/EffectManager";
 
 class Projectile extends Phaser.Physics.Arcade.Sprite {
@@ -91,4 +91,3 @@ class Projectile extends Phaser.Physics.Arcade.Sprite {
 }
 
 export default Projectile;
-

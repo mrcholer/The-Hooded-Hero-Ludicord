@@ -1,7 +1,7 @@
-let animationsInitialized = false;
+const initializedManagers = new WeakSet();
 
 export default (anims) => {
-    if (!animationsInitialized) {
+    if (!initializedManagers.has(anims)) {
         anims.create({
             key: "shield-run",
             frames: anims.generateFrameNumbers("shield-run", {
@@ -32,7 +32,6 @@ export default (anims) => {
             repeat: 0,
         });
 
-        animationsInitialized = true;
+        initializedManagers.add(anims);
     }
 };
-

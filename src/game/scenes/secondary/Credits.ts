@@ -52,4 +52,3 @@ class CreditsScene extends BaseScene {
 }
 
 export default CreditsScene;
-

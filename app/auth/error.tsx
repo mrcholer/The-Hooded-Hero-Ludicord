@@ -1,0 +1,1 @@
+export default function AuthError({ retry }: { readonly retry?: () => void }) { return <main className="status-screen" role="alert"><img src="/assets/logo2.png" alt="The Hooded Hero" /><h1>Adventure unavailable</h1><p>Discord could not initialize this Activity.</p>{retry ? <button onClick={retry}>Try again</button> : null}</main>; }

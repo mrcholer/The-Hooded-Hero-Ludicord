@@ -3,10 +3,10 @@ import createFireAnimations from "./projectiles/fireAnims";
 import createAxeAnimations from "./weapons/axeAnims";
 import createSwordAnimations from "./weapons/swordAnims";
 
-let animationsInitialized = false;
+const initializedManagers = new WeakSet();
 
 export default (anims) => {
-    if (!animationsInitialized) {
+    if (!initializedManagers.has(anims)) {
         // --- Effect animations ---
         anims.create({
             key: "hit-effect",
@@ -38,7 +38,6 @@ export default (anims) => {
 
         createCoinAnimations(anims);
 
-        animationsInitialized = true;
+        initializedManagers.add(anims);
     }
 };
-

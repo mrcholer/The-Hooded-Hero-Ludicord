@@ -1,3 +1,4 @@
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../animations/entities/spearAnims";
 import Enemy from "./BaseEnemy";
 
@@ -97,4 +98,3 @@ class Spear extends Enemy {
 }
 
 export default Spear;
-

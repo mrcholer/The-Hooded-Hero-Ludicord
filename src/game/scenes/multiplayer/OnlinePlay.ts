@@ -1,504 +1,99 @@
 // @ts-nocheck
-
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../../../animations";
 import OnlinePlayer from "../../../entities/OnlinePlayer";
 import EventEmitter from "../../../events/Emitter";
 import Enemies from "../../../groups/Enemies";
+import { adventureNetwork } from "@/lib/adventure-network";
 import BaseScene from "../BaseScene";
 
-class OnlinePlayScene extends BaseScene {
-    constructor(config) {
-        super("OnlinePlayScene", config);
-        this.config = config;
-        this.stageKey = "level_online";
-        this.opponents = {};
-        this.stageLoaded = false;
-        this.stageStart = false;
-        this.stagePassed = false;
-        this.stageEnded = false;
-        this.rankings = [];
-    }
-
-    init(data) {
-        this.socket = data.socket;
-        this.currentRoom = data.currentRoom;
-        this.roomKey = data.roomKey;
-        this.charSpriteKey = data.charSpriteKey;
-        this.username = data.username;
-        console.log({ OnlinePlayScene: data });
-    }
-
-    create() {
-        this.cameras.main.fadeIn(1000, 0, 0, 0);
-
-        this.input.keyboard.enabled = false;
-
-        this.cameras.main.on("camerafadeincomplete", () => {
-            this.socket.emit("stageLoaded");
-        });
-
-        super.create();
-
-        this.resetStageStatus();
-
-        const map = this.createMap();
-        initAnims(this.anims);
-
-        const layers = this.createLayers(map);
-        const playerZones = this.getPlayerZones(layers.playerZones);
-        const player = this.createPlayer(playerZones.start);
-
-        this.player = player;
-        console.log({ Me: this.player });
-        this.lastCheckpoint = playerZones.start;
-        const enemies = this.createEnemies(
-            layers.enemySpawns,
-            layers.platformsColliders
-        );
-
-        this.createEnemyColliders(enemies, {
-            platformsColliders: layers.platformsColliders,
-            player,
-        });
-
-        this.createPlayerColliders(player, {
-            colliders: {
-                platformsColliders: layers.platformsColliders,
-                projectiles: enemies.getProjectiles(),
-                enemies,
-            },
-        });
-
-        this.playBgMusic();
-        this.createBG(map);
-        this.createEndOfLevel(playerZones.end, player);
-
-        this.handleCheckpoints(playerZones.checkpoints, player);
-        this.setupFollowupCameraOn(player);
-
-        this.usernameText = this.add
-            .text(this.player.x, this.player.y, this.username, {
-                fontSize: "40px",
-                fill: "#fff",
-            })
-            .setOrigin(0.5, 1)
-            .setDepth(2);
-
-        this.setupUI();
-        this.createGameEvents();
-
-        // Creates countdown text
-        this.playerCountdown = this.add
-            .text(
-                this.config.width / 2,
-                this.config.height / 5 + 200,
-                `Waiting for all players...`,
-                {
-                    fontFamily: "customFont",
-                    fontSize: "100px",
-                    fill: "#fff",
-                }
-            )
-            .setOrigin(0.5, 0.5)
-            .setScrollFactor(0);
-
-        // Creates opponents
-        Object.keys(this.currentRoom.players).forEach((playerId) => {
-            if (playerId !== this.socket.id) {
-                const { spriteKey, username } =
-                    this.currentRoom.players[playerId];
-                this.opponents[playerId] = new OnlinePlayer(
-                    this,
-                    playerZones.start.x,
-                    playerZones.start.y,
-                    spriteKey,
-                    username,
-                    this.socket,
-                    false
-                );
-                this.opponents[playerId].body.setAllowGravity(false);
-
-                this[`opponents${playerId}`] = this.add
-                    .text(
-                        this.opponents[playerId].x + 90,
-                        this.opponents[playerId].y - 160,
-                        username,
-                        {
-                            fontSize: "40px",
-                            fill: "#fff",
-                        }
-                    )
-                    .setOrigin(0.5, 1);
-            }
-        });
-
-        // update stage count down timer
-        this.socket.on("stageTimerUpdated", (time) => {
-            this.countdownFx.play();
-            this.playerCountdown.setFontSize("100px");
-            this.playerCountdown.setText(`${time}`);
-        });
-
-        // all players start the stage at the same time
-        this.socket.on("startStage", () => {
-            this.goFx.play();
-            this.playerCountdown.setText("GO!");
-            this.stageStart = true;
-            this.input.keyboard.enabled = true; // Enable keyboard input
-            this.time.delayedCall(1000, () => this.playerCountdown.destroy());
-        });
-
-        // Opponent movements updated
-        this.socket.on("playerMoved", ({ playerId, moveState }) => {
-            if (this.opponents[playerId]) {
-                this.opponents[playerId].updateOtherPlayer(moveState);
-                this[`opponents${playerId}`].setX(this.opponents[playerId].x);
-                this[`opponents${playerId}`].setY(this.opponents[playerId].y);
-            }
-        });
-
-        this.socket.on("updateWinners", (numWinners) => {
-            this.stageLimitText.setText(
-                `Stage Limit: ${numWinners}/${this.stageLimit}`
-            );
-        });
-
-        // stage ended when num of players reach the stage limit
-        this.socket.on("stageEnded", (roomInfo) => {
-            this.socket.removeAllListeners();
-            this.stageEnded = true;
-            const { stageWinners } = roomInfo;
-
-            this.time.addEvent({
-                delay: 5000,
-                loop: false,
-                repeat: 0,
-                callback: () => {
-                    this.socket.emit("leaveGame");
-                    this.socket.on("gameLeft", () => {
-                        this.socket.removeAllListeners();
-                        this.scene.stop(this.stageKey);
-                        this.scene.start("RankingScene", {
-                            rankings: stageWinners,
-                        });
-                    });
-                },
-            });
-        });
-
-        // remove opponent when they leave the room (i.e. disconnected from the server)
-        this.socket.on(
-            "playerLeft",
-            ({ playerId, newStageLimits, numWinners }) => {
-                if (this.opponents[playerId]) {
-                    this.opponents[playerId].destroy(); // remove opponent's game object
-                    delete this.opponents[playerId]; // remove opponent's key-value pair
-                    this[`opponents${playerId}`].destroy(); // remove opponent's name
-                    this.stageLimit -= 1;
-                    this.stageLimitText.setText(
-                        `Stage Limit: ${numWinners}/${this.stageLimit}`
-                    );
-                }
-            }
-        );
-    }
-
-    playBgMusic() {
-        this.sound.stopAll();
-        this.onlineBGM.play();
-    }
-
-    setupUI() {
-        this.createHomeButton();
-        this.createSettingsButton();
-        this.createControlsButton();
-
-        this.setStageLimit();
-        this.stageLimitText = this.add
-            .text(
-                this.config.width / 2,
-                this.config.height / 2 - 600,
-                `Winners: 0/${this.stageLimit}`,
-                {
-                    fontFamily: "customFont",
-                    fontSize: "50px",
-                    fill: "#fff",
-                }
-            )
-            .setScrollFactor(0)
-            .setOrigin(0.5, 0.5);
-    }
-
-    createMap() {
-        const map = this.make.tilemap({ key: this.stageKey });
-        map.addTilesetImage("tileset_1", "forest-tiles");
-        map.addTilesetImage("tileset_2", "cave-tiles");
-        map.addTilesetImage("environment", "environment-tiles");
-        map.addTilesetImage("house_inside_4", "house-tiles");
-
-        return map;
-    }
-
-    createLayers(map) {
-        const tileset1 = map.getTileset("tileset_1");
-        const tileset2 = map.getTileset("tileset_2");
-        const tileset3 = map.getTileset("environment");
-        const tileset4 = map.getTileset("house_inside_4");
-
-        const platformsColliders = map.createLayer("platforms_colliders", [
-            tileset1,
-            tileset2,
-            tileset3,
-        ]);
-
-        const environment = map
-            .createLayer("environment", [tileset3, tileset4])
-            .setDepth(-4);
-        const platforms = map.createLayer("platforms", [
-            tileset1,
-            tileset2,
-            tileset3,
-            tileset4,
-        ]);
-        const playerZones = map.getObjectLayer("player_zones");
-        const enemySpawns = map.getObjectLayer("enemy_spawns");
-
-        platformsColliders
-            .setCollisionByProperty({ collides: true })
-            .setAlpha(0);
-
-        return {
-            environment,
-            platforms,
-            platformsColliders,
-            playerZones,
-            enemySpawns,
-        };
-    }
-
-    createBG(map) {
-        const bgObject = map.getObjectLayer("distance_bg").objects[0];
-
-        this.forestBg = [
-            { key: "bg-forest-1", y: 300, depth: -10, scale: 1.3 },
-            { key: "bg-forest-2", y: 300, depth: -11, scale: 1.3 },
-            { key: "bg-forest-3", y: 300, depth: -12, scale: 1 },
-            { key: "mountain-bg", y: 200, depth: -13, scale: 1 },
-            { key: "sky-bg", y: 0, depth: -14, scale: 1 },
-        ];
-
-        this.bgSprites = [];
-
-        this.forestBg.forEach(({ key, y, depth, scale }) => {
-            const sprite = this.add
-                .tileSprite(
-                    0,
-                    y,
-                    this.config.width + 3000,
-                    this.config.height + 1000,
-                    key
-                )
-                .setOrigin(0.5, 0)
-                .setDepth(depth)
-                .setScale(scale)
-                .setScrollFactor(0, 1);
-
-            this.bgSprites.push(sprite);
-        });
-    }
-
-    createSettingsButton() {
-        this.settingsButton = this.createButton(
-            this.config.rightBottomCorner.x - 50,
-            this.config.rightBottomCorner.y - 50,
-            "settings-button",
-            () => {
-                this.scene.sendToBack("OnlinePlayScene");
-                this.scene.launch("SettingsScene");
-            }
-        )
-            .setScrollFactor(0)
-            .setScale(1.2);
-    }
-
-    createHomeButton() {
-        this.homeButton = this.createButton(
-            this.config.rightBottomCorner.x - 50,
-            this.config.rightBottomCorner.y - 150,
-            "home-btn",
-            () => {
-                this.selectFx.play();
-                this.scene.sendToBack("OnlinePlayScene");
-                this.scene.launch("PauseScene");
-            }
-        )
-            .setScrollFactor(0)
-            .setScale(1.2);
-    }
-
-    createControlsButton() {
-        this.controlsButton = this.createButton(
-            this.config.rightBottomCorner.x - 50,
-            this.config.rightBottomCorner.y - 250,
-            "controls-btn",
-            () => {
-                this.scene.sendToBack("OnlinePlayScene");
-                this.scene.launch("Controls");
-            }
-        )
-            .setScrollFactor(0)
-            .setScale(1);
-    }
-
-    createPlayer(start) {
-        return new OnlinePlayer(
-            this,
-            start.x,
-            start.y,
-            this.charSpriteKey,
-            this.username,
-            this.socket,
-            true
-        );
-    }
-
-    createEnemies(spawnLayer, platformsColliders, player) {
-        const enemies = new Enemies(this);
-        const enemyTypes = enemies.getTypes();
-
-        spawnLayer.objects.forEach((spawnPoint) => {
-            const EnemyType = enemyTypes[spawnPoint.type];
-            if (EnemyType) {
-                const enemy = new EnemyType(this, spawnPoint.x, spawnPoint.y);
-                enemy.setPlatformColliders(platformsColliders);
-                enemies.add(enemy);
-            }
-        });
-
-        return enemies;
-    }
-
-    onPlayerCollision(enemy, player) {
-        player.takesHit(enemy);
-    }
-
-    onHit(entity, source) {
-        entity.takesHit(source);
-    }
-
-    createEnemyColliders(enemies, colliders) {
-        enemies
-            .addCollider(colliders.platformsColliders)
-            .addCollider(colliders.player, this.onPlayerCollision);
-    }
-
-    createPlayerColliders(player, { colliders }) {
-        player
-            .addCollider(colliders.platformsColliders)
-            .addCollider(colliders.projectiles, this.onHit)
-            .addOverlap(colliders.enemies, this.onHit);
-    }
-
-    setupFollowupCameraOn(player) {
-        const { height, width, mapOffset } = this.config;
-        this.physics.world.setBounds(0, 0, width + mapOffset, height * 3);
-        this.cameras.main
-            .setBounds(0, 0, width + mapOffset, height + 1000)
-            .setZoom(0.5)
-            .startFollow(player);
-    }
-
-    getPlayerZones(playerZonesLayer) {
-        const playerZones = playerZonesLayer.objects;
-        return {
-            start: playerZones.find((zone) => zone.name === "startZone"),
-            end: playerZones.find((zone) => zone.name === "endZone"),
-            checkpoints: playerZones.filter((zone) =>
-                zone.name.startsWith("checkpoint")
-            ),
-        };
-    }
-
-    createEndOfLevel(end, player) {
-        const endOfLevel = this.physics.add
-            .sprite(end.x, end.y, "end")
-            .setAlpha(0)
-            .setSize(5, 200)
-            .setOrigin(0.5, 1);
-
-        const eolOverlap = this.physics.add.overlap(player, endOfLevel, () => {
-            if (this.stageEnded || this.stagePassed) return;
-            console.log("stage passed");
-            this.stagePassed = true;
-            this.socket.emit("passStage", {
-                playerId: this.socket.id,
-                username: this.username,
-            });
-        });
-    }
-
-    handleCheckpoints(checkpoints, player) {
-        checkpoints.forEach((checkpoint) => {
-            const checkpointMark = this.physics.add
-                .sprite(checkpoint.x, checkpoint.y, "checkpoint")
-                .setAlpha(0)
-                .setSize(5, 200)
-                .setOrigin(0.5, 1);
-
-            const checkpointOverlap = this.physics.add.overlap(
-                player,
-                checkpointMark,
-                () => {
-                    this.lastCheckpoint = checkpoint;
-                    console.log(
-                        `Player reached checkpoint: ${checkpoint.name}`
-                    );
-                }
-            );
-        });
-    }
-
-    createGameEvents() {
-        EventEmitter.on("RESPAWN", () => {
-            if (this.player && this.lastCheckpoint) {
-                this.player.setPosition(
-                    this.lastCheckpoint.x,
-                    this.lastCheckpoint.y
-                );
-            }
-        });
-    }
-
-    update() {
-        this.displayUsername();
-
-        if (this.bgSprites) {
-            this.bgSprites[0].tilePositionX = this.cameras.main.scrollX * 0.3;
-            this.bgSprites[1].tilePositionX = this.cameras.main.scrollX * 0.2;
-            this.bgSprites[2].tilePositionX = this.cameras.main.scrollX * 0.3;
-            this.bgSprites[3].tilePositionX = this.cameras.main.scrollX * 0.2;
-            this.bgSprites[4].tilePositionX = this.cameras.main.scrollX * 0.1;
-        }
-    }
-
-    displayUsername() {
-        this.usernameText.setX(this.player.x);
-        this.usernameText.setY(this.player.y - 80);
-    }
-
-    resetStageStatus() {
-        this.opponents = {};
-        this.stageLoaded = false;
-        this.stageStart = false;
-        this.stagePassed = false;
-        this.stageEnded = false;
-        // this.hurt = false;
-    }
-
-    setStageLimit() {
-        this.stageLimit = this.currentRoom.numPlayers;
-    }
+export default class OnlinePlayScene extends BaseScene {
+  constructor(config) { super("OnlinePlayScene", config); this.config = config; this.stageKey = "level_online"; this.opponents = {}; this.labels = {}; this.lastCheckpointIndex = 0; this.finished = false; }
+  create() {
+    super.create();
+    const snapshot = adventureNetwork.getSnapshot();
+    const viewer = snapshot?.players.find((player) => player.id === snapshot.viewerId);
+    if (!snapshot || !viewer?.hero || !viewer.participating) { this.add.text(640, 360, "Game in progress", { fontFamily: "customFont", fontSize: "52px", color: "#fff" }).setOrigin(0.5); return; }
+    this.viewerId = snapshot.viewerId;
+    this.input.keyboard.enabled = snapshot.status === "playing";
+    const map = this.createMap(); initAnims(this.anims);
+    const layers = this.createLayers(map); const zones = this.getPlayerZones(layers.playerZones);
+    this.player = new OnlinePlayer(this, viewer.position.x || zones.start.x, viewer.position.y || zones.start.y, viewer.hero, viewer.displayName, true);
+    this.player.sequence = viewer.position.sequence;
+    if (snapshot.status !== "playing") this.physics.pause();
+    this.lastCheckpoint = zones.start;
+    this.createPlayerLabel(this.viewerId, this.player, viewer.displayName, true);
+    const enemies = this.createEnemies(layers.enemySpawns, layers.platformsColliders);
+    enemies.addCollider(layers.platformsColliders).addCollider(this.player, (enemy, player) => player.takesHit(enemy));
+    this.player.addCollider(layers.platformsColliders).addCollider(enemies.getProjectiles(), (entity, source) => entity.takesHit(source)).addOverlap(enemies, (entity, source) => entity.takesHit(source));
+    this.playBgMusic(); this.createBG(); this.createEndOfLevel(zones.end); this.handleCheckpoints(zones.checkpoints); this.setupFollowupCameraOn(this.player);
+    this.raceText = this.add.text(this.config.width / 2, this.config.height / 2 - 620, "RACE TO THE FINISH", { fontFamily: "customFont", fontSize: "48px", color: "#fff", stroke: "#111", strokeThickness: 8 }).setOrigin(0.5).setScrollFactor(0).setDepth(50);
+    this.syncPlayers(snapshot);
+    this.offSnapshot = adventureNetwork.onSnapshot((next) => {
+      const me = next.players.find((player) => player.id === this.viewerId);
+      this.finished = me?.status === "FINISHED";
+      this.input.keyboard.enabled = next.status === "playing" && !this.finished;
+      if (next.status === "playing") this.physics.resume(); else this.physics.pause();
+      if (this.finished) { this.player.setVelocity(0, 0); this.raceText.setText("FINISHED · WAITING FOR THE PARTY"); }
+      if (me && this.player.wasDisconnected) {
+        this.player.setPosition(me.position.x, me.position.y).setVelocity(0, 0);
+        this.player.sequence = me.position.sequence;
+        this.player.wasDisconnected = false;
+      }
+      this.syncPlayers(next);
+    });
+    this.offMovement = adventureNetwork.onMovement((packet) => this.opponents[packet.playerId]?.updateOtherPlayer(packet));
+    this.respawnHandler = () => this.respawn(); EventEmitter.on("RESPAWN", this.respawnHandler);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.cleanup());
+  }
+  syncPlayers(snapshot) {
+    const visible = new Set();
+    snapshot.players.filter((player) => player.participating && player.id !== this.viewerId).forEach((player) => {
+      visible.add(player.id);
+      if (!this.opponents[player.id] && player.hero) {
+        const opponent = new OnlinePlayer(this, player.position.x, player.position.y, player.hero, player.displayName, false);
+        opponent.body.setAllowGravity(false); this.opponents[player.id] = opponent; this.createPlayerLabel(player.id, opponent, player.displayName, false);
+      }
+      this.opponents[player.id]?.updateOtherPlayer(player.position);
+      this.opponents[player.id]?.setAlpha(player.connected ? 1 : 0.42);
+      this.labels[player.id]?.setAlpha(player.connected ? 1 : 0.42);
+    });
+    Object.keys(this.opponents).forEach((id) => { if (!visible.has(id)) { this.opponents[id].destroy(); this.labels[id]?.destroy(); delete this.opponents[id]; delete this.labels[id]; } });
+  }
+  createPlayerLabel(id, player, name, me) { this.labels[id] = this.add.text(player.x, player.y - 105, `${name}${me ? " · YOU" : ""}`, { fontFamily: "customFont", fontSize: "25px", color: me ? "#ffd36b" : "#fff", stroke: "#111", strokeThickness: 6 }).setOrigin(0.5).setDepth(20); }
+  createMap() { const map = this.make.tilemap({ key: this.stageKey }); map.addTilesetImage("tileset_1", "forest-tiles"); map.addTilesetImage("tileset_2", "cave-tiles"); map.addTilesetImage("environment", "environment-tiles"); map.addTilesetImage("house_inside_4", "house-tiles"); return map; }
+  createLayers(map) {
+    const t1 = map.getTileset("tileset_1"), t2 = map.getTileset("tileset_2"), t3 = map.getTileset("environment"), t4 = map.getTileset("house_inside_4");
+    const platformsColliders = map.createLayer("platforms_colliders", [t1,t2,t3]).setCollisionByProperty({ collides: true }).setAlpha(0);
+    map.createLayer("environment", [t3,t4]).setDepth(-4); map.createLayer("platforms", [t1,t2,t3,t4]);
+    return { platformsColliders, playerZones: map.getObjectLayer("player_zones"), enemySpawns: map.getObjectLayer("enemy_spawns") };
+  }
+  createEnemies(spawnLayer, platforms) { const enemies = new Enemies(this); const types = enemies.getTypes(); spawnLayer.objects.forEach((point) => { const Type = types[point.type]; if (Type) { const enemy = new Type(this, point.x, point.y); enemy.setPlatformColliders(platforms); enemies.add(enemy); } }); return enemies; }
+  getPlayerZones(layer) { const zones = layer.objects; return { start: zones.find((z) => z.name === "startZone"), end: zones.find((z) => z.name === "endZone"), checkpoints: zones.filter((z) => z.name.startsWith("checkpoint")) }; }
+  createEndOfLevel(end) { const finish = this.physics.add.sprite(end.x, end.y, "end").setAlpha(0).setSize(20, 260).setOrigin(0.5, 1); this.physics.add.overlap(this.player, finish, () => {
+    if (this.finished || this.finishing) return;
+    this.finishing = true;
+    this.player.sendMovement(true);
+    adventureNetwork.request("match:finish").catch(() => {
+      this.time.delayedCall(500, () => { this.finishing = false; });
+    });
+  }); }
+  handleCheckpoints(checkpoints) { checkpoints.forEach((point, index) => { const mark = this.physics.add.sprite(point.x, point.y, "checkpoint").setAlpha(0).setSize(20, 240).setOrigin(0.5, 1); this.physics.add.overlap(this.player, mark, () => { this.lastCheckpoint = point; this.lastCheckpointIndex = index + 1; }); }); }
+  respawn() {
+    const snapshot = adventureNetwork.getSnapshot();
+    const viewer = snapshot?.players.find((player) => player.id === this.viewerId);
+    if (!this.player || !this.lastCheckpoint || this.respawning || snapshot?.status !== "playing" || !viewer?.participating || viewer.status === "FINISHED" || !adventureNetwork.isConnected()) return;
+    this.respawning = true;
+    adventureNetwork.request("player:respawn", { checkpoint: this.lastCheckpointIndex }).then(() => {
+      const me = adventureNetwork.getSnapshot()?.players.find((player) => player.id === this.viewerId);
+      if (!this.player.body) return;
+      this.player.setPosition(me?.position.x ?? this.lastCheckpoint.x, me?.position.y ?? this.lastCheckpoint.y).setVelocity(0, 0);
+      this.player.sequence = me?.position.sequence ?? this.player.sequence;
+    }).catch(() => { this.lastCheckpointIndex = 0; }).finally(() => { this.respawning = false; });
+  }
+  setupFollowupCameraOn(player) { const { height, width, mapOffset } = this.config; this.physics.world.setBounds(0, 0, width + mapOffset, height * 3); this.cameras.main.setBounds(0, 0, width + mapOffset, height + 1000).setZoom(0.5).startFollow(player); }
+  createBG() { const layers = [["bg-forest-1",300,-10,1.3],["bg-forest-2",300,-11,1.3],["bg-forest-3",300,-12,1],["mountain-bg",200,-13,1],["sky-bg",0,-14,1]]; this.bgSprites = layers.map(([key,y,depth,scale]) => this.add.tileSprite(0, y, this.config.width + 3000, this.config.height + 1000, key).setOrigin(0.5,0).setDepth(depth).setScale(scale).setScrollFactor(0,1)); }
+  playBgMusic() { this.sound.stopAll(); this.onlineBGM.play(); }
+  update() { if (!this.player) return; Object.entries(this.labels).forEach(([id,label]) => { const target = id === this.viewerId ? this.player : this.opponents[id]; if (target) label.setPosition(target.x, target.y - 105); }); if (this.bgSprites) this.bgSprites.forEach((sprite, index) => { sprite.tilePositionX = this.cameras.main.scrollX * (0.3 - Math.min(index,4) * 0.04); }); }
+  cleanup() { this.offSnapshot?.(); this.offMovement?.(); if (this.respawnHandler) EventEmitter.off("RESPAWN", this.respawnHandler); }
 }
-
-export default OnlinePlayScene;
-

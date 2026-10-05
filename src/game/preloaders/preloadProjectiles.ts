@@ -1,3 +1,4 @@
+import type * as Phaser from "phaser";
 // PROJECTILES
 export function preloadProjectiles(scene: Phaser.Scene) {
     // CROSSBOW
@@ -16,4 +17,3 @@ export function preloadProjectiles(scene: Phaser.Scene) {
     // CROSSBOW
     scene.load.image("crossbow", "objects/crossbow.png");
 }
-

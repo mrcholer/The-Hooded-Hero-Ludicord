@@ -1,3 +1,4 @@
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../animations/entities/skeletonAnims";
 import Enemy from "./BaseEnemy";
 
@@ -88,4 +89,3 @@ class Skeleton extends Enemy {
 }
 
 export default Skeleton;
-

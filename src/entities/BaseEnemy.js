@@ -1,5 +1,6 @@
+import { addGameSound } from "@/lib/game-audio";
 // Import Phaser library if not already imported
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 
 // Import mixins for additional functionality
 import anims from "../mixins/anims";
@@ -50,7 +51,7 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
         this.attackRange = 100;
 
         // Sound effect for when the enemy takes damage
-        this.takeDamageSound = this.scene.sound.add("enemy-damage", {
+        this.takeDamageSound = addGameSound(this.scene, "enemy-damage", {
             volume: 0.1,
         });
 
@@ -83,7 +84,9 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
 
     // Initialize events, such as the update loop for the enemy
     initEvents() {
-        this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
+        const scene = this.scene;
+        scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
+        this.once(Phaser.GameObjects.Events.DESTROY, () => scene.events.off(Phaser.Scenes.Events.UPDATE, this.update, this));
     }
 
     // Set the platform colliders layer for the enemy
@@ -401,4 +404,3 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
 }
 
 export default Enemy;
-

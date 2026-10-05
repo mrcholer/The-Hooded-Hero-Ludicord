@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../animations/entities/batAnims";
 import Enemy from "./BaseEnemy";
 
@@ -82,4 +82,3 @@ class Bat extends Enemy {
 }
 
 export default Bat;
-

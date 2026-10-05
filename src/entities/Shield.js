@@ -1,3 +1,4 @@
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import initAnims from "../animations/entities/shieldAnims";
 import Enemy from "./BaseEnemy";
 
@@ -97,4 +98,3 @@ class Shield extends Enemy {
 }
 
 export default Shield;
-

@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import Phaser from "phaser";
+import * as Phaser from "phaser/dist/phaser.esm.js";
 import { getTimestamp } from "../utils/helpers";
 import Projectile from "./Projectile";
 
@@ -83,4 +83,3 @@ class ProjectileManager extends Phaser.Physics.Arcade.Group {
 }
 
 export default ProjectileManager;
-
